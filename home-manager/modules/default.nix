@@ -1,0 +1,20 @@
+{
+  imports = [
+    ./alacritty.nix
+    ./bat.nix
+    ./chromium.nix
+    ./git.nix
+    ./hyprland
+    ./lazygit.nix
+    ./obsidian.nix
+    ./stylix.nix
+    ./swaync
+    ./tmux.nix
+    ./waybar
+    ./wofi
+    ./fish.nix
+    ./kitty.nix
+    ./vscode.nix
+    ./neovim.nix
+   ];
+}
