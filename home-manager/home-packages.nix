@@ -6,6 +6,9 @@
     vim
 
     # Desktop apps
+    nautilus
+    ventoy-full
+    xfce.thunar
     obs-studio
     obsidian
     discord
@@ -17,6 +20,11 @@
     timg
     ffmpeg
     anki-bin
+    spotdl
+    vlc
+    gwenview
+    jdk
+    jdt-language-server
 
     # CLI utils
     brightnessctl
@@ -34,7 +42,6 @@
     wget
     wl-clipboard
     wtype
-    yt-dlp
     zip
     xclip
     flameshot
@@ -74,5 +81,17 @@
     rofi
     grc
     swaybg
+
+    # jetbrains tools
+    jetbrains.idea-ultimate
+    jetbrains.webstorm
+    jetbrains.rust-rover
+    jetbrains.clion
+    jetbrains.pycharm-professional
+    jetbrains.goland
+    weka
+    pnpm
+
+    texliveFull
   ];
 }

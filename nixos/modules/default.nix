@@ -15,5 +15,6 @@
     ./user.nix
     ./postgres.nix
     ./docker.nix
+    ./steam.nix
   ];
 }

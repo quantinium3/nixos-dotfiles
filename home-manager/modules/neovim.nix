@@ -16,6 +16,7 @@
     opts = {
       relativenumber = true;
       tabstop = 4;
+      conceallevel = 2;
       softtabstop = 4;
       expandtab = true;
       smartindent = true;
@@ -42,6 +43,30 @@
     };
     plugins = {
       lazygit.enable = true;
+      obsidian = {
+        enable = true;
+        settings = {
+          completion = {
+            min_chars = 2;
+            nvim_cmp = true;
+          };
+          workspaces = [
+            {
+              name = "work";
+              path = "~/personal/obsidian/work";
+            }
+            {
+              name = "personal";
+              path = "~/personal/obsidian/quantinium";
+            }
+          ];
+        };
+      };
+      nvim-jdtls = {
+        enable = true;
+        data = "/home/quantinium/.cache/jdtls/config";
+        configuration = "/home/quantinium/.cache/jdtls/workspace";
+      };
       indent-blankline.enable = true;
       harpoon = {
         enable = true;
@@ -70,6 +95,8 @@
       lsp = {
         enable = true;
         servers = {
+          astro.enable = true;
+          marksman.enable = true;
           pyright.enable = true;
           tailwindcss.enable = true;
           ts_ls.enable = true;
@@ -192,6 +219,7 @@
     };
     extraPlugins = with pkgs.vimPlugins; [
       lazydev-nvim
+      nvim-jdtls
       nvim-colorizer-lua
       (pkgs.vimUtils.buildVimPlugin {
         name = "crackboard-nvim";
@@ -241,6 +269,12 @@
       require('crackboard').setup({
         session_key = "",
       })
+
+      local config = {
+          cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},
+          root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+      }
+      require('jdtls').start_or_attach(config)
 
       require('cord').setup({})
 

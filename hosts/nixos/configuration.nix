@@ -1,4 +1,4 @@
-{ config, libs, pkgs, stateVersion, hostname, ... }:
+{ config, lib, pkgs, stateVersion, hostname, ... }:
 
 {
   imports =
@@ -18,8 +18,8 @@
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [
-	luarocks # is the package manager for Lua modules
-	luadbi-mysql # Database abstraction layer
+        luarocks # is the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
       ];
     };
     displayManager.gdm.enable = true;
@@ -29,12 +29,37 @@
     };
     # videoDrivers = [ "nvidia" ];
   };
+  powerManagement.enable = true;
+  powerManagement.powerUpCommands = ''
+    echo disk > /sys/power/state
+  '';
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
 
-  services.libinput.touchpad.tapping = true; 
-  services.libinput.touchpad.naturalScrolling = true; 
+  services.libinput.touchpad.tapping = true;
+  services.libinput.touchpad.naturalScrolling = true;
   services.libinput.enable = true;
+  services.ollama = {
+    enable = true;
+    loadModels = [ "deepseek-r1:8b" "deepseek-coder-v2:16b" "deepseek-r1:7b" ];
+  };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-unwrapped"
+    "steam-run"
+  ];
 
   services.flatpak.enable = true;
 
@@ -55,38 +80,38 @@
     intel-media-driver
     libva-utils
   ];
-#  hardware.nvidia = {
-#    modesetting.enable = true;
-#
-#    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-#    # Enable this if you have graphical corruption issues or application crashes after waking
-#    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-#    # of just the bare essentials.
-#    powerManagement.enable = false;
-#
-#    # Fine-grained power management. Turns off GPU when not in use.
-#    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-#    powerManagement.finegrained = true;
-#
-#    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-#    # Only available from driver 515.43.04+
-#    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-#    open = false; # not neoveau
-#    nvidiaSettings = true;
-#
-#    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-#    package = config.boot.kernelPackages.nvidiaPackages.stable;
-#
-#    # Optimus prime
-#    prime = {
-#	intelBusId = "PCI:0:2:0";
-#	nvidiaBusId = "PCI:1:0:0";
-#	# sync more:- https://nixos.wiki/wiki/Nvidia#Optimus_PRIME_Option_B:_Sync_Mode
-#	offload = {
-#		enable = true;
-#		enableOffloadCmd = true;
-#	};
-#    };
-#  };
+  hardware.nvidia = {
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = true;
+
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Only available from driver 515.43.04+
+    # Currently alpha-quality/buggy, so false is currently the recommended setting.
+    open = false; # not neoveau
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # Optimus prime
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+      # sync more:- https://nixos.wiki/wiki/Nvidia#Optimus_PRIME_Option_B:_Sync_Mode
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+    };
+  };
 }
 

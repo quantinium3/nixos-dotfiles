@@ -11,6 +11,8 @@
       locate="command -v";
       drive-info="sudo smartctl -a";
       birthday="stat -c %w /";
+      hms="home-manager switch --flake .";
+      nrb="sudo nixos-rebuild switch --flake .";
     };
   };
 }

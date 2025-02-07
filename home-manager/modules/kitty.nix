@@ -31,7 +31,7 @@
       background #000000
       background_opacity 0.1
       background_blur 1
-      background_image ~/wallpapers/frieren_winter_fire.png
+      background_image ~/wallpapers/wallhaven-d61yjo_1920x1080.png
       # background_image_layout tiled
       # background_image_linear no
       # dynamic_background_opacity no
