@@ -93,5 +93,6 @@
     pnpm
 
     texliveFull
+    libreoffice-fresh
   ];
 }

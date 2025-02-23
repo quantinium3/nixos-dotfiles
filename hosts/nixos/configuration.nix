@@ -48,10 +48,10 @@
   services.libinput.touchpad.tapping = true;
   services.libinput.touchpad.naturalScrolling = true;
   services.libinput.enable = true;
-  services.ollama = {
+  /* services.ollama = {
     enable = true;
     loadModels = [ "deepseek-r1:8b" "deepseek-coder-v2:16b" "deepseek-r1:7b" ];
-  };
+  }; */
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -67,6 +67,17 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.dates = "weekly";
 
+  systemd.user.services.nel = {
+    description = "Nel Input Tracker";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "/home/quantinium/personal/github/nel/target/release/nel";
+      Restart = "on-failure";
+      Environment = "DISPLAY=:0";
+    };
+  };
+
   nix.gc.automatic = true;
   nix.gc.dates = "daily";
   nix.gc.options = "--delete-older-than 10d";
@@ -80,7 +91,7 @@
     intel-media-driver
     libva-utils
   ];
-  hardware.nvidia = {
+  /* hardware.nvidia = {
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -112,6 +123,6 @@
         enableOffloadCmd = true;
       };
     };
-  };
+  }; */
 }
 

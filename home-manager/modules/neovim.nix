@@ -189,7 +189,6 @@
           };
         };
       };
-      oil.enable = true;
       treesitter = {
         enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
@@ -222,21 +221,12 @@
       nvim-jdtls
       nvim-colorizer-lua
       (pkgs.vimUtils.buildVimPlugin {
-        name = "crackboard-nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "boganworld";
-          repo = "crackboard.nvim";
-          rev = "main"; # You might want to use a specific commit hash here
-          sha256 = "sha256-sScAbpwc3z6i3ZP3FWkiJMlXyMZnMYNuEqvXNsXf5IA=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
         name = "cord.nvim";
         src = pkgs.fetchFromGitHub {
           owner = "vyfor";
           repo = "cord.nvim";
-          rev = "client-server";
-          sha256 = "sha256-D2xOqEr75HptygRXFM4Z2pj2OhVEaOjrvNNFCo5Dz08=";
+          rev = "master";
+          sha256 = "sha256-gVL7YOtyF5A55daLbjsMbitcTO2oD8cumSz3JC2tnrI=";
         };
       })
       (pkgs.vimUtils.buildVimPlugin {
@@ -251,7 +241,7 @@
     ];
     keymaps = [
       {
-        action = "<cmd>Oil<CR>";
+        action = "<cmd>Ex<CR>";
         key = "<leader>pv";
         options = {
           silent = true;
@@ -266,10 +256,6 @@
       }
     ];
     extraConfigLua = ''
-      require('crackboard').setup({
-        session_key = "",
-      })
-
       local config = {
           cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},
           root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),

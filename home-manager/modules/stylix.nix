@@ -46,8 +46,8 @@
         package = pkgs.fira-code;
       };
       serif = {
-        name = "Fira Code";
-        package = pkgs.fira-code;
+        name = "Noto Serif";
+        package = pkgs.noto-fonts;
       };
 
       sizes = {

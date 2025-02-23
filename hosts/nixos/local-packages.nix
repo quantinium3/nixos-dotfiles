@@ -4,9 +4,7 @@
     gnumake
     cmake
     xorg.libX11
-    # jetbrains.pycharm-professional
-    # jre8
-    # qemu
-    # quickemu
+    openssl
+    pkg-config
   ];
 }
