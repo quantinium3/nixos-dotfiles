@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
@@ -64,6 +64,8 @@
     lua-language-server
     clang-tools
     pyright
+    bun
+    nodePackages.serve
 
     # WM stuff
     libsForQt5.xwaylandvideobridge
@@ -75,7 +77,7 @@
     bemoji
     nix-prefetch-scripts
 
-   # awesome
+    # awesome
     dmenu
     kitty
     rofi
@@ -94,5 +96,9 @@
 
     texliveFull
     libreoffice-fresh
+    figma-linux
+    qbittorrent
+    telegram-desktop
+    git-lfs
   ];
 }

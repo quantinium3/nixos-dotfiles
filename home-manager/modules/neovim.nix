@@ -226,7 +226,7 @@
           owner = "vyfor";
           repo = "cord.nvim";
           rev = "master";
-          sha256 = "sha256-gVL7YOtyF5A55daLbjsMbitcTO2oD8cumSz3JC2tnrI=";
+          sha256 = "sha256-QyUfE9AP7uVpMo27B5ONRy/BS+QyFyR8z+BkazEMx5Y=";
         };
       })
       (pkgs.vimUtils.buildVimPlugin {
@@ -256,6 +256,21 @@
       }
     ];
     extraConfigLua = ''
+      local get_errors = function(bufnr) return vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR }) end
+      local errors = get_errors(0)
+
+      vim.api.nvim_create_autocmd('DiagnosticChanged', {
+        callback = function()
+          errors = get_errors(0)
+        end
+      })
+
+      text = {
+        editing = function(opts)
+          return string.format('Editing %s - %s errors', opts.filename, #errors)
+        end
+      }
+
       local config = {
           cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},
           root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),

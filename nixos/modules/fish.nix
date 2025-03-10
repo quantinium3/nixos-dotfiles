@@ -7,7 +7,7 @@
       cl="clear";
       opent="alacritty &";
       update="sudo pacman -Syyu";
-      battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0";
+      battery-health="nix-shell -p acpi --run 'acpi -i'";
       locate="command -v";
       drive-info="sudo smartctl -a";
       birthday="stat -c %w /";
