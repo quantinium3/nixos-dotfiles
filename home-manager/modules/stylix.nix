@@ -16,10 +16,9 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     targets = {
-      neovim.enable = true;
       waybar.enable = false;
       wofi.enable = false;
       hyprland.enable = false;

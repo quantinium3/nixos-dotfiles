@@ -1,4 +1,4 @@
-{lib, ...}:{
+{ lib, ... }: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
@@ -12,7 +12,7 @@
       scrollback_lines 10000
       scrollback_indicator_opacity 1.0
       scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
-      url_color #0087bd
+      url_color               #f5e0dc
       url_style curly
       open_url_with default
       detect_urls yes
@@ -27,16 +27,18 @@
       # inactive_text_alpha 1.0
       # hide_window_decorations no
       #: Color scheme {{{
-      foreground #dddddd
-      background #000000
       background_opacity 0.1
       background_blur 1
-      background_image ~/wallpapers/wallhaven-d61yjo_1920x1080.png
+      background_image ~/wallpapers/wallhaven-3l8lgv_1920x1080.png
       # background_image_layout tiled
       # background_image_linear no
       # dynamic_background_opacity no
-      selection_foreground #000000
-      selection_background #fffacd
+      foreground              #cdd6f4
+      background              #1e1e2e
+      selection_foreground    #1e1e2e
+      selection_background    #f5e0dc
+      cursor                  #f5e0dc
+      cursor_text_color       #1e1e2e
       # color0 #000000
       # color8 #767676
       #: black

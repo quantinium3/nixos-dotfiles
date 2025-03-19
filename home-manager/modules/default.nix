@@ -17,5 +17,6 @@
     ./vscode.nix
     ./neovim.nix
     ./helix.nix
+    ./wezterm.nix
    ];
 }

@@ -220,22 +220,14 @@
       lazydev-nvim
       nvim-jdtls
       nvim-colorizer-lua
+      vim-mustache-handlebars
       (pkgs.vimUtils.buildVimPlugin {
-        name = "cord.nvim";
+        name = "catppuccin.nvim";
         src = pkgs.fetchFromGitHub {
-          owner = "vyfor";
-          repo = "cord.nvim";
-          rev = "master";
-          sha256 = "sha256-QyUfE9AP7uVpMo27B5ONRy/BS+QyFyR8z+BkazEMx5Y=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "gruvbox.nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "ellisonleao";
-          repo = "gruvbox.nvim";
+          owner = "catppuccin";
+          repo = "nvim";
           rev = "main";
-          sha256 = "sha256-qasIg1nvAlUWUUzSZLF36jnoNm8PmQa3owgh0tKGgHk=";
+          sha256 = "sha256-4h/fzFY8JR9r+QnoiWEqgQKPMuu8i9HTC4v0Jp7iuUo=";
         };
       })
     ];
@@ -277,12 +269,10 @@
       }
       require('jdtls').start_or_attach(config)
 
-      require('cord').setup({})
-
-      require('gruvbox').setup({
-          transparent_mode = true,
+      require('catppuccin').setup({
+          transparent_background = true,
       })
-      vim.cmd('colorscheme gruvbox')
+      vim.cmd('colorscheme catppuccin')
 
       local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
       vim.api.nvim_create_autocmd('TextYankPost', {

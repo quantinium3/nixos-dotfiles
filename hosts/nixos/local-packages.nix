@@ -6,5 +6,6 @@
     xorg.libX11
     openssl
     pkg-config
+    wireguard-tools
   ];
 }

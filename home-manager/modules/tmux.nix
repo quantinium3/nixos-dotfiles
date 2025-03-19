@@ -42,7 +42,7 @@
       bind -n M-Q kill-session
     '';
     plugins = with pkgs; [
-      tmuxPlugins.gruvbox
+      tmuxPlugins.catppuccin
       # {
       #   plugin = tmuxPlugins.resurrect;
       #   extraConfig = "set -g @resurrect-strategy-nvim 'session'";

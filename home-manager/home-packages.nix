@@ -100,5 +100,8 @@
     qbittorrent
     telegram-desktop
     git-lfs
+    jq
+    cloc
+    bitwarden-desktop
   ];
 }

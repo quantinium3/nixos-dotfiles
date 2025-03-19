@@ -13,6 +13,30 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  /* networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+  };
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.0.0.2/8" ];
+      listenPort = 51820;
+
+      privateKey = "YKjgbMOrkRZopK0abnoBtBskQAklQgWO7baAT2HedHI=";
+
+      peers = [
+
+        {
+          publicKey = "piE56JKHAWqv4R7JAaaWSFJ+9du90iSD6V8b15I5Xks=";
+
+          allowedIPs = [ "0.0.0.0/0" ];
+          endpoint = "64.227.172.31:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  }; */
+
   services.xserver = {
     enable = true;
     windowManager.awesome = {
