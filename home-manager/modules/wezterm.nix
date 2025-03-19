@@ -4,6 +4,7 @@
     extraConfig = ''
       return {
         color_scheme = "Catppuccin Mocha",
+        foreground = "#FFFFFF",  -- Main text color (often a light grey in Mocha)
         font = wezterm.font "Fira Code",
         font_size = 16.0,
         line_height = 1.0,
@@ -26,7 +27,7 @@
         window_background_image_hsb = {
           hue = 1.0,
           saturation = 1.0,
-          brightness = 0.3
+          brightness = 0.1
         }
       }
     '';
