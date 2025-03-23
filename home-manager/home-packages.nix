@@ -103,5 +103,7 @@
     jq
     cloc
     bitwarden-desktop
+    nix-index
+    lsof
   ];
 }

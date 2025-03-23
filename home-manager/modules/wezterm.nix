@@ -8,11 +8,6 @@
         font = wezterm.font "Fira Code",
         font_size = 16.0,
         line_height = 1.0,
-        foreground_text_hsb = {
-          hue = 1.0,
-          saturation = 1.0,
-          brightness = 1.0
-        },
         hide_tab_bar_if_only_one_tab = true,
         window_background_opacity = 0.9,
         text_background_opacity = 1.0,

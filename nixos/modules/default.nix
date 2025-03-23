@@ -13,7 +13,7 @@
     ./nix.nix
     ./timezone.nix
     ./user.nix
-    ./postgres.nix
+/*     ./postgres.nix */
     ./docker.nix
     ./steam.nix
   ];

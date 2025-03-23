@@ -43,6 +43,16 @@
     };
     plugins = {
       lazygit.enable = true;
+      presence-nvim = {
+        enable = true;
+        enableLineNumber = true;
+        buttons = [
+          {
+            label = "github";
+            url = "https://github.com/quantinium03";
+          }
+        ];
+      };
       obsidian = {
         enable = true;
         settings = {
@@ -228,6 +238,24 @@
           repo = "nvim";
           rev = "main";
           sha256 = "sha256-4h/fzFY8JR9r+QnoiWEqgQKPMuu8i9HTC4v0Jp7iuUo=";
+        };
+      })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "typr";
+        src = pkgs.fetchFromGitHub {
+          owner = "nvzone";
+          repo = "typr";
+          rev = "main";
+          sha256 = "sha256-CHZ83Ctkv7mVOzVL4iSS3SgVOxTdMwecjCaomwPpsK4=";
+        };
+      })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "volt";
+        src = pkgs.fetchFromGitHub {
+          owner = "nvzone";
+          repo = "volt";
+          rev = "main";
+          sha256 = "sha256-uhNPJfqq28iAGSBEDobQgNuLNThwkMqpXgRO27eTtVI=";
         };
       })
     ];
