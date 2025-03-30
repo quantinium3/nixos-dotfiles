@@ -92,8 +92,6 @@
       trouble.enable = true;
       todo-comments.enable = true;
       fidget.enable = true;
-      neotest.enable = true;
-      neotest.adapters.plenary.enable = true;
       gitsigns.enable = true;
       blink-cmp.settings = {
         sources.providers = {
@@ -231,7 +229,6 @@
     extraPlugins = with pkgs.vimPlugins; [
       lazydev-nvim
       nvim-jdtls
-      nvim-colorizer-lua
       vim-mustache-handlebars
       (pkgs.vimUtils.buildVimPlugin {
         name = "catppuccin.nvim";
@@ -272,6 +269,13 @@
       {
         action = "<cmd>UndotreeToggle<CR>";
         key = "<leader>u";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<cmd>LazyGit<CR>";
+        key = "<leader>lg";
         options = {
           silent = true;
         };
