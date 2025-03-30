@@ -42,7 +42,9 @@
       breakindent = true;
     };
     plugins = {
+      dap.enable = true;
       lazygit.enable = true;
+      vim-css-color.enable = true;
       presence-nvim = {
         enable = true;
         enableLineNumber = true;

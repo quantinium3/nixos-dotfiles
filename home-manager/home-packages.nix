@@ -105,5 +105,7 @@
     bitwarden-desktop
     nix-index
     lsof
+    redshift
+    gimp
   ];
 }

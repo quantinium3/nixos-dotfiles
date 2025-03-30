@@ -7,5 +7,7 @@
     openssl
     pkg-config
     wireguard-tools
+    vipsdisp
+    vips
   ];
 }
