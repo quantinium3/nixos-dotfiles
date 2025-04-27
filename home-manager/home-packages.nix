@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # Packages in each category are sorted alphabetically
     vim
+    times-newer-roman
 
     # Desktop apps
     nautilus
@@ -25,6 +26,11 @@
     gwenview
     jdk
     jdt-language-server
+    astro-language-server
+    eslint
+    eslint_d
+    prettierd
+    tailwindcss-language-server
 
     # CLI utils
     brightnessctl
@@ -66,6 +72,8 @@
     pyright
     bun
     nodePackages.serve
+    racket
+    ghc
 
     # WM stuff
     libsForQt5.xwaylandvideobridge
@@ -107,5 +115,10 @@
     lsof
     redshift
     gimp
+    betterdiscordctl
+    okular
+    gradle
+    pavucontrol
   ];
+
 }
