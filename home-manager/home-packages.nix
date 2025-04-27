@@ -63,7 +63,6 @@
     gnumake
     cmake
     gopls
-    rustup
     lua51Packages.lua
     luarocks
     bruno
