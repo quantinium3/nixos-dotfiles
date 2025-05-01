@@ -118,6 +118,8 @@
     okular
     gradle
     pavucontrol
+    notion-app-enhanced
+    slack
   ];
 
 }

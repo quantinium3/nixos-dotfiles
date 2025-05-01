@@ -9,5 +9,6 @@
     wireguard-tools
     vipsdisp
     vips
+    nix-ld
   ];
 }

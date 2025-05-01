@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -25,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, nix-ld, rust-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "24.11";
@@ -41,12 +37,11 @@
         };
 
         modules = [
-          nix-ld.nixosModules.nix-ld
           ./hosts/${hostname}/configuration.nix
           nixvim.nixosModules.nixvim
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+            environment.systemPackages = [ pkgs.rust-bin.beta.latest.default ];
           })
         ];
       };
