@@ -11,7 +11,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "coretemp" "k10temp"];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
     "resume=UUID=23c5bae0-3e4a-46bc-a188-a4e404abce92"
@@ -48,4 +48,5 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableAllFirmware = true;
 }

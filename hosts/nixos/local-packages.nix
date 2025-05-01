@@ -10,5 +10,7 @@
     vipsdisp
     vips
     nix-ld
+    lm_sensors
+    dmidecode
   ];
 }

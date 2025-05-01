@@ -57,17 +57,6 @@
   powerManagement.powerUpCommands = ''
     echo disk > /sys/power/state
   '';
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
 
   services.libinput.touchpad.tapping = true;
   services.libinput.touchpad.naturalScrolling = true;
@@ -117,6 +106,7 @@
     intel-media-driver
     libva-utils
   ];
+  hardware.sensor.iio.enable = true;
   /* hardware.nvidia = {
     modesetting.enable = true;
 
