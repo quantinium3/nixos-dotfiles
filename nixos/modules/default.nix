@@ -16,5 +16,6 @@
 /*     ./postgres.nix */
     ./docker.nix
     ./steam.nix
+    ./power.nix
   ];
 }
