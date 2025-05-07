@@ -18,5 +18,6 @@
     ./neovim.nix
     ./helix.nix
     ./wezterm.nix
+    ./fastfetch.nix
    ];
 }
