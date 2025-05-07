@@ -11,7 +11,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "coretemp" "k10temp"];
+  boot.kernelModules = [ "kvm-intel" "coretemp" "x86_pkg_temp_thermal" "intel_rapl_msr" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
     "resume=UUID=23c5bae0-3e4a-46bc-a188-a4e404abce92"
