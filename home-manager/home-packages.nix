@@ -39,7 +39,6 @@
     git-graph
     grimblast
     htop
-    fastfetch
     playerctl
     ripgrep
     udisks
@@ -121,6 +120,12 @@
     notion-app-enhanced
     slack
     cbonsai
+    qalculate-qt
+    grimblast
+    spectacle
+    grim
+    fastfetch
+    grimblast
   ];
 
 }
