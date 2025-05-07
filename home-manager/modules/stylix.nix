@@ -17,6 +17,7 @@
     enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
     targets = {
       waybar.enable = false;
       wofi.enable = false;
@@ -59,6 +60,11 @@
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
       light = "Papirus-Light";
+    };
+
+    image = pkgs.fetchurl {
+      url = "https://w.wallhaven.cc/full/qr/wallhaven-qr9987.jpg";
+      sha256 = "sha256-xKBv8ve65GeY/PkCGBQZwtHQS1FZL4QpVcLnG8qLH5Q=";
     };
   };
 }
