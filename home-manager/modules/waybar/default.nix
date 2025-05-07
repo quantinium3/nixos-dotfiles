@@ -6,43 +6,22 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
-        modules-left = ["hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
-        modules-right = ["hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray"];
+        height = 26;
+        modules-left = [ "hyprland/workspaces" ];
+        modules-right = [ "tray" "hyprland/language" "custom/weather" "brightness" "pulseaudio" "battery" "temperature" "memory" "cpu" "clock"];
+
         "hyprland/workspaces" = {
           disable-scroll = true;
-          show-special = true;
-          special-visible-only = true;
-          all-outputs = false;
-          format = "{icon}";
-          format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            "6" = "";
-            "7" = "";
-            "8" = "";
-            "9" = "";
-            "magic" = "";
-          };
-
+          all-outputs = true;
+          warp-on-scroll = false;
           persistent-workspaces = {
-            "*" = 9;
+            "*" = 10;
           };
-        };
-
-        "hyprland/language" = {
-          format-en = "🇺🇸";
-          min-length = 5;
-          tooltip = false;
         };
 
         "custom/weather" = {
           format = " {} ";
-          exec = "curl -s 'wttr.in/Tashkent?format=%c%t'";
+          exec = "curl -s 'https://wttr.in/Delhi?format=%c%t'";
           interval = 300;
           class = "weather";
         };
@@ -58,9 +37,38 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = ["" ""];
+            "default" = [ "" "" ];
           };
           on-click = "pavucontrol";
+        };
+
+        "cpu" = {
+          format = "{usage}%";
+          tooltip = true;
+        };
+
+        "brightness" = {
+          format = "{usage}%";
+          tooltip = true;
+        };
+
+        "memory" = {
+          format = "{}% ";
+          tooltip = true;
+          interval = 5;
+          states = {
+              warning = 70;
+              critical = 90;
+          };
+        };
+
+        "temperature" = {
+          interval = 10;
+          tooltip = true;
+          hwmon-path = "/sys/devices/virtual/thermal/thermal_zone7/temp";
+          critical-threshold = 80;
+          format-critical = "󰸁 {temperatureC}°C";
+          format = "󰔏 {temperatureC}°C";
         };
 
         "battery" = {
@@ -71,7 +79,7 @@
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [ "" "" "" "" "" ];
         };
 
         "clock" = {

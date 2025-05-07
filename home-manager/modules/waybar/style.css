@@ -1,72 +1,94 @@
 * {
-  border: none;
-  border-radius: 0px;
-  font-family: "JetBrains Mono";
-  font-weight: bold;
-  font-size: 16px;
-  min-height: 0;
-  color: #ebdbb2;
+    font-family: "Fira Code", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    transition: 0.2s all ease;
+    background: none;
 }
 
-window#waybar {
-  background: #1d2021;
+#workspaces {
+    margin: 3px;
+    padding: 2px 10px;
+    border-radius: 8px;
+    background-color: #11111b;
 }
 
-/* Workspace Buttons */
-#workspaces button label{
-  color: #ebdbb2;
-  padding: 0 10px;
+#workspaces button {
+    padding: 0 2px;
+    border-radius: 12px;
+    font-size: 6px;
+    min-width: 20px;
+    color: #cdd6f4;
 }
-#workspaces button.active label {
-  color: #1d2021;
-}
+
+
 #workspaces button.active {
-  background: #d65d0e;
+    color: black;
+    background-color: #cdd6f4;
+    min-width: 30px;
+    padding: 0;
 }
 
-#clock, #battery, #pulseaudio, #tray, #language, #weather {
-  padding: 0 10px;
-  margin: 0 10px;
+#workspaces button.urgent {
+    background-color: #d20f39;
+    color: black;
+    padding: 0;
 }
 
-#language {
-  margin: 0;
-  color: #d79921;
-  border-bottom: 5px solid #d79921;
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#language,
+#custom-weather,
+#battery,
+#tray,
+#clock {
+    margin: 3px 2px;
+    padding: 2px 14px;
+    background-color: #11111b;
+    border-radius: 8px;
+    color: #cdd6f4;
 }
 
-#custom-weather {
-  margin: 0;
-  color: #98971a;
-  border-bottom: 5px solid #98971a
+#temperature.critical {
+    background-color: #d20f39;
+    color: #cdd6f4;
 }
 
-#pulseaudio {
-  margin: 0;
-  color: #689d6a;
-  border-bottom: 5px solid #689d6a;
+#battery.critical:not(.charging) {
+    color: #d20f39;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.charging {
+    color: #40a02b;
+    background-color: #40a02b;
 }
 
 #pulseaudio.muted {
-  padding: 0 20px;
-  color: #cc241d;
-  border-bottom: 5px solid #cc241d;
+    font-weight: bolder;
+    padding: 0 20px;
+    color: #d20f39;
 }
 
-#battery {
-  margin: 0;
-  color: #458588;
-  border-bottom: 5px solid #458588;
+@keyframes blink {
+    to {
+        background-color: #d20f39;
+        color: #181825;
+    }
 }
 
-#clock {
-  margin: 0;
-  color: #b16286;
-  border-bottom: 5px solid #b16286;
+tooltip {
+    background-color: #11111b;
+    border: 1px solid rgba(100, 114, 125, 0.5);
 }
 
-#tray {
-  margin: 0;
-  color: #d65d0e;
-  border-bottom: 5px solid #d65d0e;
+tooltip label {
+    color: #cdd6f4;
 }
