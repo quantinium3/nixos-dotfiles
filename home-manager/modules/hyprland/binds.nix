@@ -11,10 +11,11 @@
       "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
       "$mainMod,       B, exec, pkill -SIGUSR2 waybar"
       "$mainMod SHIFT, B, exec, pkill -SIGUSR1 waybar"
-      "$mainMod SHIFT, L, exec, loginctl lock-session"
+      "$mainMod SHIFT, X, exec, loginctl lock-session"
       "$mainMod,       P, exec, hyprpicker -an"
       "$mainMod,       N, exec, swaync-client -t"
-      ", Print, exec, grimblast --notify --freeze copysave area"
+      "$mainMod,       SPACE, togglefloating"
+      ", Print, exec, grimblast --notify --freeze copysave area ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
 
       # Moving focus
       "$mainMod, h, movefocus, l"
@@ -75,16 +76,16 @@
       ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      "$mainMod, bracketright, exec, brightnessctl s 10%+"
-      "$mainMod, bracketleft,  exec, brightnessctl s 10%-"
+      ",XF86MonBrightnessUp,   exec, brightnessctl s 10%+"
+      ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ",XF86MonCalculator,     exec, qalculate-qt"
     ];
 
-    # Audio playback
     bindl = [
-      ", XF86AudioNext,  exec, playerctl next"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioPlay,  exec, playerctl play-pause"
-      ", XF86AudioPrev,  exec, playerctl previous"
+      ",XF86AudioNext,  exec, playerctl next"
+      ",XF86AudioPause, exec, playerctl play-pause"
+      ",XF86AudioPlay,  exec, playerctl play-pause"
+      ",XF86AudioPrev,  exec, playerctl previous"
     ];
   };
 }
