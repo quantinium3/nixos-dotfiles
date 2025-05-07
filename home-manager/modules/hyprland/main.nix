@@ -76,6 +76,10 @@
       general = {
         gaps_in = 0;
         gaps_out = 0;
+
+        border_size = 1;
+        "col.active_border" = "rgba(f5e0dcff) rgba(cba6f7ff) 45deg";
+        "col.inactive_border" = "rgba(1e1e2eff)";
         resize_on_border = true;
         allow_tearing = false;
         layout = "master";
