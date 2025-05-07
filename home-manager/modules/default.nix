@@ -10,7 +10,6 @@
     ./stylix.nix
     ./swaync
     ./tmux.nix
-    ./waybar
     ./wofi
     ./fish.nix
     ./kitty.nix
@@ -18,5 +17,6 @@
     ./neovim.nix
     ./helix.nix
     ./wezterm.nix
+    ./ags
    ];
 }

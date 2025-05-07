@@ -120,6 +120,7 @@
     pavucontrol
     notion-app-enhanced
     slack
+    cbonsai
   ];
 
 }
