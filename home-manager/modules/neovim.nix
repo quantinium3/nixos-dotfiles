@@ -240,21 +240,12 @@
         };
       })
       (pkgs.vimUtils.buildVimPlugin {
-        name = "typr";
+        name = "areyoulockedin.nvim";
         src = pkgs.fetchFromGitHub {
-          owner = "nvzone";
-          repo = "typr";
+          owner = "voltycodes";
+          repo = "areyoulockedin.nvim";
           rev = "main";
-          sha256 = "sha256-CHZ83Ctkv7mVOzVL4iSS3SgVOxTdMwecjCaomwPpsK4=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "volt";
-        src = pkgs.fetchFromGitHub {
-          owner = "nvzone";
-          repo = "volt";
-          rev = "main";
-          sha256 = "sha256-uhNPJfqq28iAGSBEDobQgNuLNThwkMqpXgRO27eTtVI=";
+          sha256 = "sha256-EpsM9VhQkvs9gwCBUq0jJ/wNeLcO9v7wE1W5Zff+ahE=";
         };
       })
     ];
@@ -302,6 +293,9 @@
           root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
       }
       require('jdtls').start_or_attach(config)
+      require("areyoulockedin").setup({
+        session_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      })
 
       require('catppuccin').setup({
           transparent_background = true,
