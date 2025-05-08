@@ -8,6 +8,7 @@
     noto-fonts-emoji
     font-awesome
     powerline-fonts
+    times-newer-roman
     powerline-symbols
     fira-code
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })

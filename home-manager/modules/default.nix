@@ -19,5 +19,6 @@
     ./helix.nix
     ./wezterm.nix
     ./fastfetch
+    ./programming.nix
    ];
 }
