@@ -8,7 +8,7 @@
         position = "top";
         height = 38;
         modules-left = [ "hyprland/workspaces" ];
-        modules-right = [ "tray" "hyprland/language" "custom/weather" "brightness" "pulseaudio" "battery" "temperature" "memory" "cpu" "clock" ];
+        modules-right = [ "tray" "hyprland/language" "custom/weather" "backlight" "pulseaudio" "battery" "temperature" "memory" "cpu" "clock" ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -63,9 +63,10 @@
           tooltip = true;
         };
 
-        "brightness" = {
-          format = "{usage}%";
-          tooltip = true;
+        "backlight" = {
+          device = "intel_backlight";
+          format = "{percent}% {icon}";
+          format-icons = [ "" "" ];
         };
 
         "memory" = {
@@ -73,8 +74,8 @@
           tooltip = true;
           interval = 5;
           states = {
-              warning = 70;
-              critical = 90;
+            warning = 70;
+            critical = 90;
           };
         };
 

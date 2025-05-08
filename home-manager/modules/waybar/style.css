@@ -28,7 +28,7 @@
 #workspaces button.active {
     color: black;
     background-color: #cdd6f4;
-    min-width: 14px;
+    min-width: 30px;
     padding: 0;
 }
 
@@ -40,6 +40,7 @@
 
 #pulseaudio,
 #network,
+#backlight,
 #cpu,
 #memory,
 #temperature,
