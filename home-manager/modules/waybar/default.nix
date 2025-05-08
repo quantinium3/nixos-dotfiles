@@ -6,14 +6,30 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 26;
+        height = 38;
         modules-left = [ "hyprland/workspaces" ];
-        modules-right = [ "tray" "hyprland/language" "custom/weather" "brightness" "pulseaudio" "battery" "temperature" "memory" "cpu" "clock"];
+        modules-right = [ "tray" "hyprland/language" "custom/weather" "brightness" "pulseaudio" "battery" "temperature" "memory" "cpu" "clock" ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
           warp-on-scroll = false;
+          format = "";
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
+            "7" = "";
+            "8" = "";
+            "9" = "";
+            "10" = "";
+            "urgent" = "";
+            "magic" = "";
+          };
+
           persistent-workspaces = {
             "*" = 10;
           };
