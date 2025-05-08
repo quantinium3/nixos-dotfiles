@@ -5,7 +5,7 @@
       local wezterm = require 'wezterm'
       return {
         color_scheme = "Catppuccin Mocha",
-        font = "Fira Code", sans-serif,
+        font = wezterm.font "Fira Code",
         font_size = 16.0,
         line_height = 1.0,
         hide_tab_bar_if_only_one_tab = true,
