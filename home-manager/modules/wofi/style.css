@@ -1,44 +1,48 @@
-window {
-  margin: 0px;
-  border: 5px solid;
-  border-image: linear-gradient(135deg, #d65d0e 0%, #98971a 100%) 1;
-  background-color: #282828;
-  font-family: "JetBrains Mono";
-  font-weight: bold;
-  font-size: 16px;
+#window {
+    background-color: rgba(24, 24, 24, 0.6);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    filter: blur(2rem);
 }
 
-#input {
-  margin: 5px;
-  border: none;
-  color: #ebdbb2;
-  background-color: #1d2021;
+#window #outer-box {}
+
+#window #outer-box #input {
+    background-color: rgba(24, 24, 24, 0.6);
+    color: #f2f2f2;
+    border: none;
+    border-bottom: 1px solid rgba(24, 24, 24, 0.2);
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem 1rem 0 0;
 }
 
-#inner-box {
-  margin: 5px;
-  border: none;
-  background-color: #282828;
+#window #outer-box #input:focus,
+#window #outer-box #input:focus-visible,
+#window #outer-box #input:active {
+    border: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
 
-#outer-box {
-  margin: 5px;
-  border: none;
-  background-color: #282828;
+#window #outer-box #scroll {}
+
+#window #outer-box #scroll #inner-box {}
+
+#window #outer-box #scroll #inner-box #entry {
+    color: #fff;
+    background-color: rgba(24, 24, 24, 0.1);
+    padding: 0.6rem 1rem;
 }
 
-#scroll {
-  margin: 0px;
-  border: none;
+#window #outer-box #scroll #inner-box #entry #img {
+    width: 1rem;
+    margin-right: 0.5rem;
 }
 
-#text {
-  margin: 5px;
-  border: none;
-  color: #ebdbb2;
-}
-
-#entry:selected {
-  background-color: #d65d0e;
-  color: #ffffff;
+#window #outer-box #scroll #inner-box #entry:selected {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: none;
 }
