@@ -35,6 +35,8 @@
     tmux-sessionizer
 
     # Languages
+    cargo
+    rustc
     nodejs
     python311
     go

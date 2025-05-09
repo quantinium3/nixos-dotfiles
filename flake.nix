@@ -14,14 +14,9 @@
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "24.11";
@@ -39,10 +34,6 @@
         modules = [
           ./hosts/${hostname}/configuration.nix
           nixvim.nixosModules.nixvim
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.beta.latest.default ];
-          })
         ];
       };
 
