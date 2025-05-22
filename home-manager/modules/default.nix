@@ -20,5 +20,6 @@
     ./wezterm.nix
     ./fastfetch
     ./programming.nix
+    ./rmpc
    ];
 }
