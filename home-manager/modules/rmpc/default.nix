@@ -1,5 +1,5 @@
 {
-  programs.wofi = {
+  programs.rmpc = {
     enable = true;
   };
 
