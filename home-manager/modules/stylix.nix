@@ -3,21 +3,21 @@
 
   home.packages = with pkgs; [
     dejavu_fonts
-    jetbrains-mono
     noto-fonts
     noto-fonts-emoji
     font-awesome
     powerline-fonts
     times-newer-roman
     powerline-symbols
-    fira-code
+    montserrat
+    _0xproto
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   stylix = {
     enable = true;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
 
     targets = {
       waybar.enable = false;
@@ -38,12 +38,12 @@
         package = pkgs.noto-fonts-color-emoji;
       };
       monospace = {
-        name = "Fira Code";
-        package = pkgs.fira-code;
+        name = "0xProto";
+        package = pkgs._0xproto;
       };
       sansSerif = {
-        name = "Fira Code";
-        package = pkgs.fira-code;
+        name = "Montserrat";
+        package = pkgs.montserrat;
       };
       serif = {
         name = "Noto Serif";
