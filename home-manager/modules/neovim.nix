@@ -74,10 +74,8 @@
           ];
         };
       };
-      nvim-jdtls = {
+      jdtls = {
         enable = true;
-        data = "/home/quantinium/.cache/jdtls/config";
-        configuration = "/home/quantinium/.cache/jdtls/workspace";
       };
       indent-blankline.enable = true;
       harpoon = {
@@ -106,6 +104,7 @@
         enable = true;
         servers = {
           astro.enable = true;
+          svelte.enable = true;
           marksman.enable = true;
           pyright.enable = true;
           tailwindcss.enable = true;
@@ -115,6 +114,7 @@
           rust_analyzer = {
             enable = true;
             installCargo = true;
+            installRustfmt = true;
             installRustc = true;
           };
           nixd = {
@@ -136,7 +136,7 @@
         enable = true;
         autoEnableSources = true;
         settings.sources = [
-          { name = "nvim_lsp"; }
+/*           { name = "nvim_lsp"; } */
           { name = "path"; }
           { name = "buffer"; }
           { name = "luasnip"; }
@@ -220,6 +220,7 @@
           heex
           javascript
           fish
+          svelte
         ];
       };
 
@@ -231,21 +232,12 @@
       nvim-jdtls
       vim-mustache-handlebars
       (pkgs.vimUtils.buildVimPlugin {
-        name = "catppuccin.nvim";
+        name = "kanagawa.nvim";
         src = pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "nvim";
-          rev = "main";
-          sha256 = "sha256-4h/fzFY8JR9r+QnoiWEqgQKPMuu8i9HTC4v0Jp7iuUo=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "areyoulockedin.nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "voltycodes";
-          repo = "areyoulockedin.nvim";
-          rev = "main";
-          sha256 = "sha256-EpsM9VhQkvs9gwCBUq0jJ/wNeLcO9v7wE1W5Zff+ahE=";
+          owner = "rebelot";
+          repo = "kanagawa.nvim";
+          rev = "master";
+          sha256 = "sha256-i54hTf4AEFTiJb+j5llC5+Xvepj43DiNJSq0vPZCIAg=";
         };
       })
     ];
@@ -292,15 +284,26 @@
           cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},
           root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
       }
-      require('jdtls').start_or_attach(config)
-      require("areyoulockedin").setup({
-        session_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      require('kanagawa').setup({
+          transparent = true,
+          theme = "dragon",
+          background = {
+              dark = "dragon",
+              light = "lotus",
+          },
       })
+      vim.cmd('colorscheme kanagawa')
 
-      require('catppuccin').setup({
-          transparent_background = true,
-      })
-      vim.cmd('colorscheme catppuccin')
+      require'lspconfig'.rust_analyzer.setup{
+        settings = {
+          ['rust-analyzer'] = {
+            diagnostics = {
+              enable = true;
+            }
+          }
+        }
+      }
+
 
       local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
       vim.api.nvim_create_autocmd('TextYankPost', {
@@ -363,7 +366,6 @@
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
