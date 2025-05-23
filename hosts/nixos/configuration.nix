@@ -79,7 +79,7 @@
   system.stateVersion = stateVersion;
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
-  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-24.11";
+  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-25.05";
   system.autoUpgrade.dates = "weekly";
 
   systemd.user.services.nel = {

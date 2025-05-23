@@ -2,27 +2,32 @@
   description = "My system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fenix = {
+      url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, fenix, ... }@inputs:
     let
       system = "x86_64-linux";
-      homeStateVersion = "24.11";
+      homeStateVersion = "25.05";
       user = "quantinium";
       hosts = [
-        { hostname = "nixos"; stateVersion = "24.11"; }
+        { hostname = "nixos"; stateVersion = "25.05"; }
       ];
 
       makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
@@ -32,13 +37,26 @@
         };
 
         modules = [
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ inputs.fenix.overlays.default ];
+            environment.systemPackages = with pkgs; [
+              (inputs.fenix.packages.${pkgs.system}.complete.withComponents [
+                "cargo"
+                "clippy"
+                "rust-src"
+                "rustc"
+                "rustfmt"
+              ])
+              rust-analyzer-nightly
+            ];
+          })
           ./hosts/${hostname}/configuration.nix
-          nixvim.nixosModules.nixvim
         ];
       };
 
     in
     {
+      packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
       nixosConfigurations = nixpkgs.lib.foldl'
         (configs: host:
           configs // {
