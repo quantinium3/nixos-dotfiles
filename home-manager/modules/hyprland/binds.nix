@@ -16,6 +16,8 @@
       "$mainMod,       N, exec, swaync-client -t"
       "$mainMod,       SPACE, togglefloating"
       ", Print, exec, grimblast --notify --freeze copysave area ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
+      ", F6, exec, hyprsunset identity"
+      ", F7, exec, hyprsunset --temperature 4000"
 
       # Moving focus
       "$mainMod, h, movefocus, l"

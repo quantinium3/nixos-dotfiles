@@ -23,6 +23,7 @@
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "hyprsunset --temperature 4000"
       ];
 
       input = {

@@ -1,5 +1,0 @@
-{
-  programs.hyprsunset = {
-    enable = true;
-  };
-}
