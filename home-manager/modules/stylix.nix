@@ -1,5 +1,5 @@
-{ pkgs, inputs, config, ... }: {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+{ pkgs, inputs, ... }: {
+  imports = [ inputs.stylix.homeModules.stylix ];
 
   home.packages = with pkgs; [
     dejavu_fonts
@@ -11,7 +11,6 @@
     powerline-symbols
     montserrat
     _0xproto
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   stylix = {

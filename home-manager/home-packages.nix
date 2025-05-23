@@ -2,9 +2,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # Tools
-    ventoy-full
-
     # Applications
     xfce.thunar
     obs-studio
@@ -15,7 +12,7 @@
     tor-browser
     anki-bin
     vlc
-    gwenview
+    nomacs-qt6
     htop
     btop
     libreoffice-fresh
@@ -24,7 +21,7 @@
     telegram-desktop
     bitwarden-desktop
     gimp
-    okular
+    kdePackages.okular
     pavucontrol
     notion-app-enhanced
     slack
@@ -53,11 +50,13 @@
     cbonsai
     fastfetch
     grim
+    uutils-coreutils
 
     # WM
     libsForQt5.xwaylandvideobridge
     libnotify
     xdg-desktop-portal-gtk
+    hyprsunset
     xdg-desktop-portal-hyprland
 
     # Miscellaneous
@@ -67,6 +66,12 @@
     rofi
     grc
     ripgrep
+    flameshot
+    steam-run
+    davinci-resolve-studio
+    rmpc
+    mpd
+    mpc
   ];
 
 }

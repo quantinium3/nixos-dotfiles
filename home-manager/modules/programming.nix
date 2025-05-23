@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # editor
-    vim
+    #vim
     jetbrains.idea-ultimate
     /* jetbrains.webstorm
     jetbrains.rust-rover
@@ -23,6 +23,7 @@
     gopls
     pyright
     lua-language-server
+    svelte-language-server
 
     # package managers
     python312Packages.pip
@@ -32,6 +33,7 @@
     # Tools
     gh
     git-lfs
+    jujutsu
     tmux-sessionizer
 
     # Languages
