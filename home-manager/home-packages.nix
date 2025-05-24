@@ -26,6 +26,8 @@
     notion-app-enhanced
     slack
     qalculate-qt
+    ncspot
+    yazi
 
     # CLI Tools
     lsd
@@ -72,6 +74,10 @@
     rmpc
     mpd
     mpc
+    tokei
+    kdePackages.kgpg
+    gnupg
+    pinentry-all
   ];
 
 }
