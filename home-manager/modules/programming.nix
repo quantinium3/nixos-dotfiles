@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # editor
     #vim
+    evil-helix
     jetbrains.idea-ultimate
     /* jetbrains.webstorm
     jetbrains.rust-rover
@@ -35,6 +36,7 @@
     git-lfs
     jujutsu
     tmux-sessionizer
+    hyperfine
 
     # Languages
     nodejs
@@ -54,6 +56,7 @@
 
     # Curl wrapper
     bruno
+    httpie
 /*     postman */
   ];
 }
