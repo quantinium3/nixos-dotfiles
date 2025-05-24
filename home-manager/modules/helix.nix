@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.helix = {
-    enable = true;
+    enable = false;
     settings = {
       editor.cursor-shape = {
         normal = "block";
