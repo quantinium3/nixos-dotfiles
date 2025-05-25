@@ -15,8 +15,8 @@
 
   /* networking.firewall = {
     allowedUDPPorts = [ 51820 ];
-  };
-  networking.wireguard.interfaces = {
+    };
+    networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "10.0.0.2/8" ];
       listenPort = 51820;
@@ -61,10 +61,10 @@
   services.libinput.touchpad.tapping = true;
   services.libinput.touchpad.naturalScrolling = true;
   services.libinput.enable = true;
-  /* services.ollama = {
+  services.ollama = {
     enable = true;
-    loadModels = [ "deepseek-r1:8b" "deepseek-coder-v2:16b" "deepseek-r1:7b" ];
-  }; */
+    loadModels = [ "gemma3" ];
+  };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
