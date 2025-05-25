@@ -53,6 +53,16 @@
     fastfetch
     grim
     uutils-coreutils
+    ncdu
+    duf
+    mosh
+    lshw
+    mtr
+    fd
+    glances
+    termshark
+    magic-wormhole
+    lazydocker
 
     # WM
     libsForQt5.xwaylandvideobridge
