@@ -17,5 +17,6 @@
     ./docker.nix
     ./steam.nix
     ./power.nix
+    ./gpg.nix
   ];
 }
