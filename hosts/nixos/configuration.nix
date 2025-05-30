@@ -53,6 +53,7 @@
     };
     # videoDrivers = [ "nvidia" ];
   };
+  services.pcscd.enable = true;
   powerManagement.enable = true;
   powerManagement.powerUpCommands = ''
     echo disk > /sys/power/state
