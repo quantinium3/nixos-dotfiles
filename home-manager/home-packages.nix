@@ -85,9 +85,8 @@
     mpd
     mpc
     tokei
-    kdePackages.kgpg
-    gnupg
     pinentry-all
+    tldr
   ];
 
 }
