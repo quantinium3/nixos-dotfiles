@@ -19,5 +19,6 @@
     ./power.nix
     ./gpg.nix
     ./nix-ld.nix
+    ./flatpak.nix
   ];
 }
