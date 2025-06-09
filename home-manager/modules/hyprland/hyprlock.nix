@@ -12,7 +12,7 @@
       label = {
         text = "$TIME";
         font_size = 96;
-        font_family = "Fira Code";
+        font_family = "0xProto";
         color = "rgba(255, 255, 255, 1.0)";
         position = "0, 600";
         halign = "center";

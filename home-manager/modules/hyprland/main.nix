@@ -54,7 +54,7 @@
         workspace_swipe_forever = true;
       };
 
-      windowrule =
+      /* windowrule =
         let
           f = regex: "float, ^(${regex})$";
         in
@@ -72,7 +72,7 @@
           (f "transmission-gtk")
           (f "com.github.Aylur.ags")
           "workspace 7, title:Spotify"
-        ];
+        ]; */
 
       general = {
         gaps_in = 0;
