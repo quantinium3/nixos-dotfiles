@@ -45,7 +45,7 @@
       dap.enable = true;
       lazygit.enable = true;
       vim-css-color.enable = true;
-      presence-nvim = {
+      /* presence-nvim = {
         enable = true;
         enableLineNumber = true;
         buttons = [
@@ -54,7 +54,7 @@
             url = "https://github.com/quantinium03";
           }
         ];
-      };
+      }; */
       obsidian = {
         enable = true;
         settings = {
@@ -232,12 +232,12 @@
       nvim-jdtls
       vim-mustache-handlebars
       (pkgs.vimUtils.buildVimPlugin {
-        name = "kanagawa.nvim";
+        name = "github-nvim-theme";
         src = pkgs.fetchFromGitHub {
-          owner = "rebelot";
-          repo = "kanagawa.nvim";
-          rev = "master";
-          sha256 = "sha256-i54hTf4AEFTiJb+j5llC5+Xvepj43DiNJSq0vPZCIAg=";
+          owner = "projekt0n";
+          repo = "github-nvim-theme";
+          rev = "main";
+          sha256 = "sha256-/A4hkKTzjzeoR1SuwwklraAyI8oMkhxrwBBV9xb59PA=";
         };
       })
     ];
@@ -284,15 +284,12 @@
           cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},
           root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
       }
-      require('kanagawa').setup({
-          transparent = true,
-          theme = "dragon",
-          background = {
-              dark = "dragon",
-              light = "lotus",
-          },
-      })
-      vim.cmd('colorscheme kanagawa')
+        require('github-theme').setup({
+            options = {
+                transparent = true;
+            };
+        })
+      vim.cmd('colorscheme github_dark')
 
       require'lspconfig'.rust_analyzer.setup{
         settings = {
