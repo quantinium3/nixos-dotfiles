@@ -51,7 +51,7 @@
       layout = "us";
       variant = "";
     };
-    # videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" ];
   };
   services.pcscd.enable = true;
   powerManagement.enable = true;
@@ -108,7 +108,7 @@
     libva-utils
   ];
   hardware.sensor.iio.enable = true;
-  /* hardware.nvidia = {
+  hardware.nvidia = {
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -119,7 +119,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
 
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
@@ -130,16 +130,15 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    # Optimus prime
+    /* # Optimus prime
     prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
-      # sync more:- https://nixos.wiki/wiki/Nvidia#Optimus_PRIME_Option_B:_Sync_Mode
       offload = {
         enable = true;
         enableOffloadCmd = true;
       };
-    };
-  }; */
+    }; */
+  };
 }
 
