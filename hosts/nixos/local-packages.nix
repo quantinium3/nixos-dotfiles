@@ -11,5 +11,8 @@
     vips
     lm_sensors
     dmidecode
+    sshfs-fuse
+    sshfs
+    fuse
   ];
 }

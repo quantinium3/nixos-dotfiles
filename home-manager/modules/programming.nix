@@ -4,11 +4,11 @@
     #vim
     evil-helix
     jetbrains.idea-ultimate
-    /* jetbrains.webstorm
     jetbrains.rust-rover
-    jetbrains.clion
-    jetbrains.pycharm-professional
-    jetbrains.goland */
+    jetbrains.goland
+    jetbrains.webstorm
+    /* jetbrains.pycharm-professional
+    jetbrains.clion */
     
     # Terminal 
 /*     kitty */
@@ -31,6 +31,14 @@
     luarocks
     pnpm
 
+    #database
+    sqlite
+    sqlite-interactive 
+    termdbms
+    litecli
+    postgresql
+    mysql84
+    
     # Tools
     gh
     git-lfs

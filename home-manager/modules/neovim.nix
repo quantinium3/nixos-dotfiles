@@ -45,7 +45,7 @@
       dap.enable = true;
       lazygit.enable = true;
       vim-css-color.enable = true;
-      /* presence-nvim = {
+      presence-nvim = {
         enable = true;
         enableLineNumber = true;
         buttons = [
@@ -54,7 +54,7 @@
             url = "https://github.com/quantinium03";
           }
         ];
-      }; */
+      };
       obsidian = {
         enable = true;
         settings = {
@@ -87,7 +87,24 @@
       web-devicons.enable = true;
       which-key.enable = true;
       undotree.enable = true;
-      trouble.enable = true;
+      trouble = {
+        enable = true;
+        settings = {
+          modes = {
+            diagnostics = {
+              auto_open = false;
+              auto_close = true;
+              signs = {
+                error = "✘";
+                warning = "▲";
+                hint = "⚑";
+                information = "ℹ";
+                other = "☐";
+              };
+            };
+          };
+        };
+      };
       todo-comments.enable = true;
       fidget.enable = true;
       gitsigns.enable = true;
@@ -197,12 +214,19 @@
               desc = "[S]earch [R]esume";
             };
           };
+          "<leader>xx" = {
+            action = "Trouble diagnostics toggle";
+            options = {
+              desc = "Open trouble diagnostics";
+            };
+          };
         };
       };
       treesitter = {
         enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           bash
+          svelte
           json
           lua
           make
@@ -268,6 +292,17 @@
       local get_errors = function(bufnr) return vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR }) end
       local errors = get_errors(0)
 
+      local get_diagnostics = function(bufnr)
+        return vim.diagnostic.get(bufnr)
+      end
+      local diagnostics = get_diagnostics(0)
+
+      vim.api.nvim_create_autocmd('DiagnosticChanged', {
+        callback = function()
+          diagnostics = get_diagnostics(0)
+        end
+      })
+
       vim.api.nvim_create_autocmd('DiagnosticChanged', {
         callback = function()
           errors = get_errors(0)
@@ -279,6 +314,20 @@
           return string.format('Editing %s - %s errors', opts.filename, #errors)
         end
       }
+
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = '●',
+          source = "always",
+          format = function(diagnostic)
+            return string.format("%s: %s", diagnostic.source, diagnostic.message)
+          end,
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
 
       local config = {
           cmd = {'/home/quantinium/.nix-profile/bin/jdtls'},

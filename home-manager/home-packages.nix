@@ -21,7 +21,7 @@
     telegram-desktop
     bitwarden-desktop
     gimp
-    kdePackages.okular
+/*     kdePackages.okular */
     pavucontrol
     notion-app-enhanced
     slack
@@ -80,7 +80,6 @@
     ripgrep
     flameshot
     steam-run
-    davinci-resolve-studio
     rmpc
     mpd
     mpc
@@ -90,6 +89,9 @@
     zed-editor
 
     bottles
+    cloudflare-warp
+    sshfs
+    pgadmin4
   ];
 
 }

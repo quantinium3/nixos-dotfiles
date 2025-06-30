@@ -31,6 +31,23 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  /* fileSystems."/mnt/natsuki" = {
+    device = "natsuki@64.227.143.192:/home/natsuki";
+    fsType = "sshfs";
+    options =
+      [ # Filesystem options
+        "allow_other"          # for non-root access
+        "_netdev"
+        "x-systemd.automount"  # mount on demand
+
+        # SSH options
+        "reconnect"              # handle connection drops
+        "ServerAliveInterval=15" # keep connections alive
+        "IdentityFile=/home/quantinium/.ssh/natsuki"
+      ];
+  }; */
+
+
   swapDevices = [
     {
       device = "/var/lib/swapfile";

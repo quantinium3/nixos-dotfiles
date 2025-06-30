@@ -3,7 +3,7 @@
     defaultUserShell = pkgs.fish;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "docker"];
+      extraGroups = [ "wheel" "networkmanager" "docker" "fuse"];
     };
   };
 
