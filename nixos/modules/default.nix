@@ -19,6 +19,5 @@
     ./power.nix
     ./nix-ld.nix
     ./flatpak.nix
-    ./cloudflare.nix
   ];
 }

@@ -42,8 +42,8 @@
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [
-        luarocks # is the package manager for Lua modules
-        luadbi-mysql # Database abstraction layer
+        luarocks
+        luadbi-mysql
       ];
     };
     displayManager.gdm.enable = true;
@@ -53,7 +53,6 @@
     };
     videoDrivers = [ "nvidia" ];
   };
-  services.pcscd.enable = true;
   powerManagement.enable = true;
   powerManagement.powerUpCommands = ''
     echo disk > /sys/power/state

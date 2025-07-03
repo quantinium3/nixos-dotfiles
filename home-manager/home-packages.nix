@@ -89,7 +89,6 @@
     zed-editor
 
     bottles
-    cloudflare-warp
     sshfs
     pgadmin4
   ];
