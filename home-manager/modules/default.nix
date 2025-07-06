@@ -12,7 +12,6 @@
     ./tmux.nix
     ./waybar
     ./wofi
-    ./fish.nix
     ./kitty.nix
     ./vscode.nix
     ./neovim.nix

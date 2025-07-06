@@ -91,6 +91,7 @@
     bottles
     sshfs
     pgadmin4
+    geekbench_6
   ];
 
 }
