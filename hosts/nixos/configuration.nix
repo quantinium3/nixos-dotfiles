@@ -75,6 +75,17 @@
   ];
 
   services.flatpak.enable = true;
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/nvme0n1";
+      }
+      {
+        device = "/dev/nvme1n1";
+      }
+    ];
+  };
 
   system.stateVersion = stateVersion;
   system.autoUpgrade.enable = true;
@@ -131,7 +142,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     /* # Optimus prime
-    prime = {
+      prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
       offload = {
