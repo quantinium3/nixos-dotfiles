@@ -1,5 +1,5 @@
 {
-  description = "My system configuration";
+  description = "Quantinium Nix Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
