@@ -15,7 +15,6 @@
       yz = "yazi";
     };
 
-    generateCompletions = true;
 
     interactiveShellInit = ''
       set fish_greeting "" 
