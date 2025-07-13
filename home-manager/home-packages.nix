@@ -92,6 +92,8 @@
     sshfs
     pgadmin4
     geekbench_6
+    sops
+    age
   ];
 
 }

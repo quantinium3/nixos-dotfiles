@@ -65,6 +65,7 @@
     # Curl wrapper
     bruno
     httpie
+    httpie-desktop
 /*     postman */
   ];
 }
