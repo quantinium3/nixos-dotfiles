@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.helix = {
-    enable = false;
+    enable = true;
     settings = {
       editor.cursor-shape = {
         normal = "block";
@@ -15,19 +15,10 @@
         formatter.command = "${pkgs.nixfmt-classic}/bin/nixfmt";
       }
       {
-        name = "java";
+        name = "nix";
         auto-format = true;
-      }
-      {
-        name = "javascript";
-        auto-format = true;
+        formatter.command = "${pkgs.nixfmt-classic}/bin/nixfmt";
       }
     ];
-    themes = {
-      autumn_night_transparent = {
-        "inherits" = "autumn_night";
-        "ui.background" = { };
-      };
-    };
   };
 }
