@@ -2,18 +2,25 @@
   home.packages = with pkgs; [
     # editor
     #vim
+    helix
     jetbrains.idea-ultimate
     jetbrains.rust-rover
     jetbrains.goland
     jetbrains.webstorm
     /* jetbrains.pycharm-professional
     jetbrains.clion */
+    clang
+    clang-tools
 
     # package managers
     python312Packages.pip
     luarocks
     pnpm
 
+
+    eslint
+    eslint_d
+    prettierd
     #database
     sqlite
     sqlite-interactive
