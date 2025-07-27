@@ -2,29 +2,12 @@
   home.packages = with pkgs; [
     # editor
     #vim
-    evil-helix
     jetbrains.idea-ultimate
     jetbrains.rust-rover
     jetbrains.goland
     jetbrains.webstorm
     /* jetbrains.pycharm-professional
     jetbrains.clion */
-    
-    # Terminal 
-/*     kitty */
-
-
-    # lsps
-    eslint
-    eslint_d
-    prettierd
-    jdt-language-server
-    astro-language-server
-    tailwindcss-language-server
-    gopls
-    pyright
-    lua-language-server
-    svelte-language-server
 
     # package managers
     python312Packages.pip
@@ -33,12 +16,12 @@
 
     #database
     sqlite
-    sqlite-interactive 
+    sqlite-interactive
     termdbms
     litecli
     postgresql
     mysql84
-    
+
     # Tools
     gh
     git-lfs
@@ -61,11 +44,30 @@
     weka
     texliveFull
     gradle
+    zig
+    crystal
+    dmd
+    dart
+    go
+    groovy
+    ghc
+    julia
+    nix
+    odin
+    perl
+    ruby
+    rustc
+    scala
+    bfc
+    R
+    clang
 
     # Curl wrapper
     bruno
+    insomnia
     httpie
     httpie-desktop
-/*     postman */
+    deploy-rs
+    /*     postman */
   ];
 }

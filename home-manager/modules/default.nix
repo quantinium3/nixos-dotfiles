@@ -16,10 +16,10 @@
     ./vscode.nix
     ./neovim.nix
     ./editor
-    ./editor/helix.nix
     ./wezterm.nix
     ./fastfetch
     ./programming.nix
     ./rmpc
+    ./lsp.nix
    ];
 }

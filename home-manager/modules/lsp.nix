@@ -1,0 +1,51 @@
+{ pkgs, ... }: {
+  home.packages = with pkgs; [
+    eslint
+    eslint_d
+    prettierd
+    jdt-language-server
+    astro-language-server
+    pyright
+    lua-language-server
+    svelte-language-server
+    markdown-oxide
+    nixfmt-rfc-style
+    deno
+    yaml-language-server
+    zls
+
+    asm-lsp
+    bash-language-server
+    clang-tools
+    lldb
+    cmake-language-server
+    docker-langserver
+    docker-compose-langserver
+    elixir-ls
+    erlang-ls
+    gopls
+    golangci-lint-langserver
+    graphql-language-service-cli
+    jdt-language-server
+    typescript-language-server
+    vscode-langservers-extracted
+    nodePackages.svelte-language-server
+    lua-language-server
+    marksman
+    markdown-oxide
+    nixd
+    ocaml-lsp
+    prisma-engines
+    python-lsp-server
+    basedpyright
+    pylyzer
+    rust-analyzer
+    tailwindcss-language-server
+    texlab
+    yaml-language-server
+    racket
+    nixfmt-classic
+    yamlfmt
+    fish
+  ];
+}
