@@ -1,22 +1,25 @@
-{ config, lib, pkgs, ... }: let
-  inherit (lib) const enabled genAttrs mkAfter mkIf;
-in {
+{ config, ... }:
+{
   editor.defaultAlias = "hx";
 
   home-manager.sharedModules = [{
     programs.helix = {
       enable = true;
-      languages.language        = config.editor.languageConfigsHelix;
+
+      languages.language = config.editor.languageConfigsHelix;
       languages.language-server = config.editor.lspConfigsHelix;
 
+      settings.theme = "gruvbox_dark_hard";
+
       settings.editor = {
-        auto-completion    = false;
-        bufferline         = "multiple";
-        color-modes        = true;
-        cursorline         = true;
+        auto-completion = false;
+        bufferline = "multiple";
+        color-modes = true;
+        cursorline = true;
         file-picker.hidden = false;
-        idle-timeout       = 0;
-        text-width         = 100;
+        idle-timeout = 0;
+        shell = [ "nu" "--commands" ];
+        text-width = 100;
       };
 
       settings.editor.cursor-shape = {
@@ -38,11 +41,7 @@ in {
 
       settings.editor.whitespace = {
         characters.tab = "→";
-        render.tab     = "all";
-      };
-
-      settings.keys = genAttrs [ "normal" "select" ] <| const {
-        D = "extend_to_line_end";
+        render.tab = "all";
       };
     };
   }];

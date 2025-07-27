@@ -1,5 +1,5 @@
-{ config, lib, pkgs, ... }: let
-  inherit (lib) attrValues mkIf mkValue mapAttrs optionalAttrs elem;
+{ lib, pkgs, ... }: let
+  inherit (lib) attrValues mkValue mapAttrs optionalAttrs elem;
 in {
   options.editor.languageConfigsHelix = mkValue (let
     formattedLanguages = {
@@ -117,26 +117,5 @@ in {
         diagnostics.disabled         = [ "inactive-code" "unlinked-file" ];
       };
     };
-  };
-
-  config.environment = {
-    shellAliases.e   = config.editor.defaultAlias;
-    variables.EDITOR = config.editor.defaultAlias;
-
-    systemPackages = mkIf config.isDesktop [
-      pkgs.cmake-language-server
-      pkgs.gopls
-      pkgs.vscode-langservers-extracted
-      pkgs.lua-language-server
-      pkgs.markdown-oxide
-      pkgs.nixfmt-rfc-style
-      pkgs.nixd
-      pkgs.basedpyright
-      pkgs.rust-analyzer-nightly
-      pkgs.lldb
-      pkgs.deno
-      pkgs.yaml-language-server
-      pkgs.zls
-    ];
   };
 }
