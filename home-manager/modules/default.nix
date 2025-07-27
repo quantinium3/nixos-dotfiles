@@ -15,7 +15,8 @@
     ./kitty.nix
     ./vscode.nix
     ./neovim.nix
-    ./helix
+    ./editor
+    ./editor/helix.nix
     ./wezterm.nix
     ./fastfetch
     ./programming.nix
