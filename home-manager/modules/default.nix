@@ -21,5 +21,6 @@
     ./programming.nix
     ./rmpc
     ./lsp.nix
+    ./zed.nix
    ];
 }
