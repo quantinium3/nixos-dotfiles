@@ -1,7 +1,7 @@
 [editor]
 scrolloff = 999
 shell = ["fish", "-c"]
-line-number = absolute
+line-number = "relative"
 auto-completion = false
 end-of-line-diagnostics = "hint"
 true-color = true
