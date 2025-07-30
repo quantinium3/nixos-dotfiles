@@ -20,5 +20,6 @@
     ./nix-ld.nix
     ./flatpak.nix
     ./gpg.nix
+    ./bongocat.nix
   ];
 }
