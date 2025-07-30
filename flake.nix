@@ -15,13 +15,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fenix = {
-      url = "github:nix-community/fenix";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zed-extensions = {
+      url = "github:DuskSystems/nix-zed-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    wakatime-ls = {
+      url = "github:mrnossiom/wakatime-ls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, fenix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, zed-extensions, ... }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "25.05";
@@ -30,6 +41,11 @@
         { hostname = "nixos"; stateVersion = "25.05"; }
       ];
 
+      pkgs = nixpkgs.legacyPackages.${system}.extend (final: prev:
+        (rust-overlay.overlays.default final prev) //
+        (zed-extensions.overlays.default final prev)
+      );
+
       makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = {
@@ -37,18 +53,9 @@
         };
 
         modules = [
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ inputs.fenix.overlays.default ];
-            environment.systemPackages = with pkgs; [
-              (inputs.fenix.packages.${pkgs.system}.complete.withComponents [
-                "cargo"
-                "clippy"
-                "rust-src"
-                "rustc"
-                "rustfmt"
-              ])
-              rust-analyzer-nightly
-            ];
+          ({ ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default zed-extensions.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
           })
           ./hosts/${hostname}/configuration.nix
         ];
@@ -56,7 +63,6 @@
 
     in
     {
-      packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
       nixosConfigurations = nixpkgs.lib.foldl'
         (configs: host:
           configs // {
@@ -68,7 +74,7 @@
         hosts;
 
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
         extraSpecialArgs = {
           inherit inputs homeStateVersion user;
         };
@@ -76,6 +82,7 @@
         modules = [
           ./home-manager/home.nix
           nixvim.homeManagerModules.nixvim
+          zed-extensions.homeManagerModules.default
         ];
       };
     };

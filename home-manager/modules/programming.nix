@@ -75,6 +75,8 @@
     httpie
     httpie-desktop
     deploy-rs
-    /*     postman */
+
+    matlab-language-server
+    deno
   ];
 }

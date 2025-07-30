@@ -86,7 +86,6 @@
     tokei
     pinentry-all
     tldr
-    zed-editor
 
     bottles
     sshfs

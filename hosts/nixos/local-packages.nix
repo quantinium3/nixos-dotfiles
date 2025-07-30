@@ -14,5 +14,6 @@
     sshfs-fuse
     sshfs
     fuse
+    protonvpn-gui
   ];
 }

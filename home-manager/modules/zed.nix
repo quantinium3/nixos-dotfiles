@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor;
-    extensions = [];
+    extensions = [ ];
     userKeymaps = [
       {
         context = "Editor && vim_mode == normal";
@@ -49,8 +49,8 @@
     userSettings = {
       vim_mode = true;
       relative_line_numbers = true;
-      show_edit_predictions = false;
-      show_completions_on_input = false;
+      show_edit_predictions = true;
+      show_completions_on_input = true;
       features = {
         edit_prediction_provider = "zed";
       };
@@ -67,11 +67,6 @@
         metrics = false;
         diagnostics = false;
       };
-      buffer_font_family = "0xProto";
-      ui_font_family = "0xProto";
-      ui_font_size = 14;
-      agent_font_size = 14;
-      buffer_font_size = 12;
       soft_wrap = "editor_width";
       tab_size = 2;
       hard_tabs = true;
@@ -94,7 +89,7 @@
         git_gutter = "tracked_files";
         gutter_debounce = null;
         inline_blame = {
-          enabled = false;
+          enabled = true;
         };
         hunk_style = "unstaged_hollow";
       };
@@ -106,7 +101,7 @@
         background_coloring = "disabled";
       };
       inlay_hints = {
-        enabled = false;
+        enabled = true;
         show_type_hints = true;
         show_parameter_hints = true;
         show_other_hints = true;
@@ -196,7 +191,7 @@
               shortenToSingleLine = true;
             };
             codeActionOnSave = {
-              rules = ["simple-import-sort/imports"];
+              rules = [ "simple-import-sort/imports" ];
             };
           };
           initialization_options = {
@@ -233,7 +228,7 @@
           formatter = {
             external = {
               command = "${pkgs.alejandra}/bin/alejandra";
-              arguments = [];
+              arguments = [ ];
             };
           };
         };
@@ -285,6 +280,7 @@
       vhdl
       elixir
       basher
+      discord-presence
     ];
   };
 }
