@@ -1,0 +1,3 @@
+{
+    programs.zen.enable = true;
+}

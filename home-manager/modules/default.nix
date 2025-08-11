@@ -22,5 +22,6 @@
     ./rmpc
     ./lsp.nix
     ./zed.nix
+    ./zen.nix
    ];
 }
