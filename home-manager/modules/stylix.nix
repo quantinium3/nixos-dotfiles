@@ -11,6 +11,7 @@
     powerline-symbols
     montserrat
     _0xproto
+    nerd-fonts._0xproto
   ];
 
   stylix = {

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./alacritty.nix
     ./bat.nix
     ./chromium.nix
     ./git.nix
@@ -12,16 +11,12 @@
     ./tmux.nix
     ./waybar
     ./wofi
-    ./kitty.nix
-    ./vscode.nix
-    ./neovim.nix
     ./editor
-    ./wezterm.nix
     ./fastfetch
     ./programming.nix
     ./rmpc
     ./lsp.nix
-    ./zed.nix
     ./zen.nix
+    ./terminal
    ];
 }

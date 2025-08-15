@@ -3,13 +3,12 @@
 
   home.packages = with pkgs; [
     # Applications
-    xfce.thunar
+    kdePackages.dolphin
     obs-studio
     obsidian
     discord
     ungoogled-chromium
     firefox
-    tor-browser
     anki-bin
     vlc
     nomacs-qt6
@@ -21,7 +20,7 @@
     telegram-desktop
     bitwarden-desktop
     gimp
-/*     kdePackages.okular */
+    /*     kdePackages.okular */
     pavucontrol
     notion-app-enhanced
     slack
@@ -93,6 +92,8 @@
     geekbench_6
     sops
     age
+    haruna
+    code-cursor
   ];
 
 }

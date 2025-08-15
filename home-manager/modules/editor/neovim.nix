@@ -1,12 +1,6 @@
 { pkgs, ... }: {
   programs.nixvim = {
     enable = true;
-    #colorschemes.gruvbox = {
-    #        enable = true;
-    #        settings = {
-    #                transparent_mode = true;
-    #        };
-    #};
     defaultEditor = true;
     vimdiffAlias = true;
     enableMan = true;
@@ -120,6 +114,7 @@
       lsp = {
         enable = true;
         servers = {
+          protols.enable = true;
           denols.enable = true;
           astro.enable = true;
           svelte.enable = true;

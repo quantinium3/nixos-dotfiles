@@ -28,6 +28,7 @@
     litecli
     postgresql
     mysql84
+    cargo-generate
 
     # Tools
     gh
@@ -54,7 +55,6 @@
     zig
     crystal
     dmd
-    dart
     go
     groovy
     ghc
@@ -78,5 +78,8 @@
 
     matlab-language-server
     deno
+    nodePackages_latest."@angular/cli"
+    httpyac
+    air
   ];
 }

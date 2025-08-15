@@ -49,8 +49,8 @@
     userSettings = {
       vim_mode = true;
       relative_line_numbers = true;
-      show_edit_predictions = true;
-      show_completions_on_input = true;
+      show_edit_predictions = false;
+      show_completions_on_input = false;
       features = {
         edit_prediction_provider = "zed";
       };
@@ -281,6 +281,8 @@
       elixir
       basher
       discord-presence
+      http
+      proto
     ];
   };
 }
