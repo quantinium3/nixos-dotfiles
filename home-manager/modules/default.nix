@@ -18,5 +18,6 @@
     ./lsp.nix
     ./zen.nix
     ./terminal
+    ./virt-manager.nix
    ];
 }
