@@ -13,12 +13,12 @@
     ./nix.nix
     ./timezone.nix
     ./user.nix
-    ./postgres.nix
     ./docker.nix
     ./steam.nix
     ./power.nix
     ./nix-ld.nix
     ./flatpak.nix
     ./gpg.nix
+    ./virtualization.nix
   ];
 }
