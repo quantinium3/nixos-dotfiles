@@ -1,9 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
-    gcc
-    gnumake
-    cmake
-    xorg.libX11
+    home-manager
     openssl
     pkg-config
     wireguard-tools
@@ -11,9 +8,5 @@
     vips
     lm_sensors
     dmidecode
-    sshfs-fuse
-    sshfs
-    fuse
-    protonvpn-gui
   ];
 }

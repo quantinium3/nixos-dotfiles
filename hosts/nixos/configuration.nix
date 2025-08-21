@@ -25,7 +25,7 @@
       layout = "us";
       variant = "";
     };
-    videoDrivers = [ "nvidia" ];
+    /*     videoDrivers = [ "nvidia" ]; */
   };
   powerManagement.enable = true;
   powerManagement.powerUpCommands = ''
@@ -35,10 +35,6 @@
   services.libinput.touchpad.tapping = true;
   services.libinput.touchpad.naturalScrolling = true;
   services.libinput.enable = true;
-  services.ollama = {
-    enable = true;
-    loadModels = [ "gemma3" ];
-  };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -115,15 +111,15 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    /* # Optimus prime
-      prime = {
+    # Optimus prime
+    prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
       offload = {
         enable = true;
         enableOffloadCmd = true;
       };
-    }; */
+    };
   };
 }
 

@@ -30,9 +30,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sakura = {
+      url = "github:sarthak2143/sakura";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+        url = "github:0xc000022070/zen-browser-flake";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, zed-extensions, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, zed-extensions, sakura, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "25.05";
@@ -57,6 +65,9 @@
             nixpkgs.overlays = [ rust-overlay.overlays.default zed-extensions.overlays.default ];
             environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
           })
+          {
+            environment.systemPackages = [ sakura.packages.${system}.default ];
+          }
           ./hosts/${hostname}/configuration.nix
         ];
       };
@@ -83,6 +94,7 @@
           ./home-manager/home.nix
           nixvim.homeManagerModules.nixvim
           zed-extensions.homeManagerModules.default
+          zen-browser.homeModules.twilight
         ];
       };
     };
