@@ -10,4 +10,6 @@
       "${XDG_BIN_HOME}"
     ];
   };
+
+  time.timeZone = "Asia/Kolkata";
 }
