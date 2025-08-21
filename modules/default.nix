@@ -4,5 +4,6 @@
         ./bluetooth.nix
         ./env.nix
         ./fish.nix
+        ./network.nix
     ];
 }
