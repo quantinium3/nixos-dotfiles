@@ -17,4 +17,9 @@
       STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
+
+  powerManagement.enable = true;
+  powerManagement.powerUpCommands = ''
+    echo disk > /sys/power/state
+  '';
 }
