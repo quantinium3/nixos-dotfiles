@@ -6,5 +6,6 @@
         ./fish.nix
         ./network.nix
         ./power.nix
+        ./steam.nix
     ];
 }
