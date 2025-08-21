@@ -1,0 +1,5 @@
+{
+    zed-editor = {
+        enable = true;
+    };
+}
