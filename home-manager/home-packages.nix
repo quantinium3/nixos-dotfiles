@@ -77,7 +77,6 @@
     rofi
     grc
     ripgrep
-    flameshot
     steam-run
     rmpc
     mpd
@@ -94,6 +93,8 @@
     age
     haruna
     code-cursor
+    qemu
+    quickemu
   ];
 
 }

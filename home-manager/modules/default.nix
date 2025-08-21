@@ -18,6 +18,5 @@
     ./lsp.nix
     ./zen.nix
     ./terminal
-    ./flameshot.nix
    ];
 }

@@ -2,14 +2,13 @@
   programs.helix = {
     enable = true;
     settings = {
-      /*       theme = "varua_transparent"; */
       keys = {
         normal = {
-          "A-," = "goto_previous_buffer";
-          "A-." = "goto_next_buffer";
-          "A-w" = ":buffer-close";
-          "A-/" = "repeat_last_motion";
+          "V" = [ "select_mode" "extend_to_line_bounds" ];
           space = {
+            b = {
+              f = "file_picker_in_current_buffer_directory";
+            };
             s = {
               f = "file_picker";
             };
@@ -26,7 +25,7 @@
       editor = {
         bufferline = "multiple";
         true-color = true;
-        auto-completion = false;
+        auto-completion = true;
         completion-replace = true;
         end-of-line-diagnostics = "hint";
         inline-diagnostics = {

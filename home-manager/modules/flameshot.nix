@@ -16,8 +16,6 @@ let
   });
 in
 {
-  environment.systemPackages = [ flameshotGrim ];
-
   services.flameshot = {
     enable = true;
     package = flameshotGrim;

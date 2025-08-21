@@ -79,6 +79,7 @@
     matlab-language-server
     deno
     nodePackages_latest."@angular/cli"
+    lmstudio
     httpyac
     air
   ];
