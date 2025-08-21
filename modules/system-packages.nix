@@ -6,7 +6,6 @@
     less
     nettools
     iproute2
-    openssh
     home-manager
     lm_sensors
     dmidecode

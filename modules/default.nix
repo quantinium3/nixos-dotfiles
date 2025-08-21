@@ -15,5 +15,6 @@
         ./git.nix
         ./boot.nix
         ./thunar.nix
+        ./sshd.nix
     ];
 }
