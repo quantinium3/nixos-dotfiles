@@ -6,5 +6,6 @@
         ./fonts.nix
         ./hyprland
         ./ripgrep.nix
+        ./editor
     ];
 }

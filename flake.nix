@@ -39,16 +39,34 @@
 
   outputs = { self, nixpkgs, lix-module, home-manager, fenix, nixvim, wakatime-ls, zed-extensions, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
+      stateVersion = "25.05";
+      hostname = "derivator";
+      user = "quantinium";
     in
     {
-      nixosConfigurations.quantinium = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         system = system;
+        specialArgs = {
+          inherit inputs stateVersion hostname user;
+        };
 
         modules = [
           lix-module.nixosModules.default
           ../nixos/configuration.nix
         ];
       };
+
+      overlays = import ./overlays { inherit inputs; };
+
+      homeConfiguration.${hostname} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs outputs user stateVersion; };
+        modules = [
+            ./home-manager/home.nix
+        ];
+      };
     };
+
 }

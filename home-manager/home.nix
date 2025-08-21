@@ -11,5 +11,10 @@
     stateVersion = homeStateVersion;
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
   systemd.user.startServices = "sd-switch";
 }
