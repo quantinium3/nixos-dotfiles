@@ -1,4 +1,4 @@
-{
+{ stateVersion, ... }: {
   environment.variables = rec {
     EDITOR = "nvim";
     TERMINAL = "wezterm";
@@ -12,4 +12,18 @@
   };
 
   time.timeZone = "Asia/Kolkata";
+
+  system = {
+    stateVersion = stateVersion;
+  };
+
+  nix = {
+    settings.auto-optimise-store = true;
+  };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 }

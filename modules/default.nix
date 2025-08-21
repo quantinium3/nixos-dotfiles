@@ -10,5 +10,10 @@
         ./user.nix
         ./system-packages.nix
         ./virtualization.nix
+        ./services.nix
+        ./hardware.nix
+        ./git.nix
+        ./boot.nix
+        ./thunar.nix
     ];
 }
