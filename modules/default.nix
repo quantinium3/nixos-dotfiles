@@ -3,5 +3,6 @@
         ./audio.nix
         ./bluetooth.nix
         ./env.nix
+        ./fish.nix
     ];
 }
