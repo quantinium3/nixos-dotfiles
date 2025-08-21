@@ -16,5 +16,6 @@
         ./boot.nix
         ./thunar.nix
         ./sshd.nix
+        ./nix-ld.nix
     ];
 }
