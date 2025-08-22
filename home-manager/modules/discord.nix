@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   discord = (pkgs.discord.override {
     withOpenASAR = true;
@@ -18,6 +18,4 @@ in
   home.packages = [
     discord
   ];
-
-  xdg.configFile."Vencord/settings/quickCss.css".text = config.theme.discordCss;
 }
