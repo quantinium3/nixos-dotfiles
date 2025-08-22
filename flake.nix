@@ -4,11 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
 
@@ -34,10 +29,15 @@
       url = "github:DuskSystems/nix-zed-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  outputs = { self, nixpkgs, lix-module, home-manager, fenix, nixvim, wakatime-ls, zed-extensions, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, fenix, nixvim, wakatime-ls, zed-extensions, zen-browser, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -53,7 +53,6 @@
         };
 
         modules = [
-          lix-module.nixosModules.default
           ../nixos/configuration.nix
         ];
       };
@@ -64,7 +63,10 @@
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs outputs user stateVersion; };
         modules = [
-            ./home-manager/home.nix
+          ./home-manager/home.nix
+          nixvim.homeManagerModules.nixvim
+          zed-extensions.homeManagerModules.default
+          zen-browser.homeModules.twilight
         ];
       };
     };
