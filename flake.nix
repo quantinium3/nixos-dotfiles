@@ -57,7 +57,7 @@
         };
 
         modules = [
-          ../nixos/configuration.nix
+          ./nixos/configuration.nix
         ];
       };
 

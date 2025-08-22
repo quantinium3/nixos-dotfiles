@@ -12,5 +12,6 @@
     ./wofi
     ./stylix.nix
     ./git.nix
+    ./discord.nix
   ];
 }
