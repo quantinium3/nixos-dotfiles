@@ -18,5 +18,7 @@
         ./sshd.nix
         ./nix-ld.nix
         ./fonts.nix
+        ./hyprlock.nix
+        ./ly.nix
     ];
 }

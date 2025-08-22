@@ -5,8 +5,6 @@
     noto-fonts-lgc-plus
     noto-fonts-emoji
     noto-fonts-extra
-    _0xproto
-    nerd-fonts.jetbrains-mono
   ];
 
   console = {

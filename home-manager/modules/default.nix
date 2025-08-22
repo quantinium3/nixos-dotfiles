@@ -8,5 +8,9 @@
     ./editor
     ./wezterm.nix
     ./waybar
+    ./browsers
+    ./wofi
+    ./stylix.nix
+    ./git.nix
   ];
 }
