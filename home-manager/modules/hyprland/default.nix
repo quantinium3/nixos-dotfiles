@@ -1,4 +1,5 @@
 {
-    imports = [
-    ];
+  imports = [
+    ./hyprland.nix
+  ];
 }
