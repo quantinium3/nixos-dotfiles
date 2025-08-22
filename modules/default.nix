@@ -17,5 +17,6 @@
         ./thunar.nix
         ./sshd.nix
         ./nix-ld.nix
+        ./fonts.nix
     ];
 }

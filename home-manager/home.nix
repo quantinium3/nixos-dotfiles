@@ -1,5 +1,6 @@
 { user
-, homeStateVersion
+, stateVersion
+, ...
 }: {
   imports = [
     ./modules
@@ -8,7 +9,7 @@
   home = {
     username = user;
     homeDirectory = "/home/${user}";
-    stateVersion = homeStateVersion;
+    stateVersion = stateVersion;
   };
 
   home-manager = {

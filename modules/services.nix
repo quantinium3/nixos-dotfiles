@@ -1,11 +1,11 @@
 {
   services = {
-    libinput.enable = {
-      libinput.touchpad = {
-        tapping = true;
-        naturalScrolling = true;
-      };
+    libinput.enable = true;
+    libinput.touchpad = {
+      tapping = true;
+      naturalScrolling = true;
     };
+
     smartd = {
       enable = true;
       devices = [
@@ -23,16 +23,16 @@
     autoUpgrade = {
       enable = true;
       allowReboot = true;
-      system.autoUpgrade.channel = "https://channels.nixos.org/nixos-25.05";
-      system.autoUpgrade.dates = "weekly";
+      channel = "https://channels.nixos.org/nixos-25.05";
+      dates = "weekly";
     };
   };
 
   nix = {
-      gc = {
-          automatic = true;
-          dates = "daily";
-          options = "--delete-older-than 10d";
-      };
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 10d";
+    };
   };
 }

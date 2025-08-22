@@ -10,7 +10,13 @@
     };
     sensor = {
       iio.enable = true;
-      hddtemp.enable = true;
+      hddtemp = {
+        enable = true;
+        drives = [
+          "/dev/nvme0n1"
+          "/dev/nvme1n1"
+        ];
+      };
     };
 
     nvidia = {

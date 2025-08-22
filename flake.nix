@@ -59,7 +59,7 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      homeConfiguration.${hostname} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${hostname} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs outputs user stateVersion; };
         modules = [
