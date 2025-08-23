@@ -1,22 +1,18 @@
 {
   imports = [
-    ./bat.nix
-    ./chromium.nix
-    ./git.nix
+    ./packages.nix
+    ./programming
+    ./qt.nix
     ./hyprland
-    ./lazygit.nix
-    ./obsidian.nix
-    ./stylix.nix
-    ./swaync
-    ./tmux.nix
-    ./waybar
-    ./wofi
+    ./ripgrep.nix
     ./editor
-    ./fastfetch
-    ./programming.nix
-    ./rmpc
-    ./lsp.nix
-    ./zen.nix
-    ./terminal
-   ];
+    ./waybar
+    ./browsers
+    ./wofi
+    ./stylix.nix
+    ./git.nix
+    ./discord.nix
+    ./wezterm
+    ./rust.nix
+  ];
 }

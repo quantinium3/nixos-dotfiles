@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./zen-browser.nix
+  ];
+}

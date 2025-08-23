@@ -6,38 +6,28 @@
       "$mainMod SHIFT, Q, exit,"
       "$mainMod,       F, togglefloating,"
       "$mainMod,       O, exec, $menu --show drun"
-      "$mainMod,       P, pseudo,"
-      "$mainMod,       J, togglesplit,"
       "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
       "$mainMod,       B, exec, pkill -SIGUSR2 waybar"
       "$mainMod SHIFT, B, exec, pkill -SIGUSR1 waybar"
       "$mainMod SHIFT, X, exec, loginctl lock-session"
-      "$mainMod,       P, exec, hyprpicker -an"
       "$mainMod,       N, exec, swaync-client -t"
       "$mainMod,       SPACE, togglefloating"
-      ", Print, exec, grimblast --notify --freeze copysave area ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
-      ", F6, exec, hyprsunset identity"
-      ", F7, exec, hyprsunset --temperature 4000"
 
-      # Moving focus
       "$mainMod, h, movefocus, l"
       "$mainMod, l, movefocus, r"
       "$mainMod, k, movefocus, u"
       "$mainMod, j, movefocus, d"
 
-      # Moving windows
       "$mainMod SHIFT, h,  swapwindow, l"
       "$mainMod SHIFT, l, swapwindow, r"
       "$mainMod SHIFT, k,    swapwindow, u"
       "$mainMod SHIFT, j,  swapwindow, d"
 
-      # Resizeing windows                   X  Y
       "$mainMod CTRL, h,  resizeactive, -60 0"
       "$mainMod CTRL, l, resizeactive,  60 0"
       "$mainMod CTRL, k,    resizeactive,  0 -60"
       "$mainMod CTRL, j,  resizeactive,  0  60"
 
-      # Switching workspaces
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
       "$mainMod, 3, workspace, 3"
@@ -49,7 +39,6 @@
       "$mainMod, 9, workspace, 9"
       "$mainMod, 0, workspace, 10"
 
-      # Moving windows to workspaces
       "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
       "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
       "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
@@ -61,18 +50,15 @@
       "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
       "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-      # Scratchpad
       "$mainMod,       S, togglespecialworkspace,  magic"
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
     ];
 
-    # Move/resize windows with mainMod + LMB/RMB and dragging
     bindm = [
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
     ];
 
-    # Laptop multimedia keys for volume and LCD brightness
     bindel = [
       ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

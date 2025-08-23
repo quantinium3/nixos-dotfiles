@@ -1,0 +1,25 @@
+{
+    imports = [
+        ./audio.nix
+        ./bluetooth.nix
+        ./setting.nix
+        ./fish.nix
+        ./network.nix
+        ./power.nix
+        ./steam.nix
+        ./user.nix
+        ./system-packages.nix
+        ./virtualization.nix
+        ./services.nix
+        ./hardware.nix
+        ./git.nix
+        ./boot.nix
+        ./thunar.nix
+        ./sshd.nix
+        ./nix-ld.nix
+        ./fonts.nix
+        ./hyprlock.nix
+        ./tuigreetd.nix
+        ./nh.nix
+    ];
+}

@@ -1,17 +1,11 @@
 {
-  description = "Quantinium Nix Configuration";
+  description = "quantinium's nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix.url = "github:danth/stylix/release-25.05";
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,8 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zed-extensions = {
-      url = "github:DuskSystems/nix-zed-extensions";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,66 +24,47 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sakura = {
-      url = "github:sarthak2143/sakura";
+    zed-extensions = {
+      url = "github:DuskSystems/nix-zed-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
-        url = "github:0xc000022070/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, rust-overlay, zed-extensions, sakura, zen-browser, ... }@inputs:
+
+  outputs = { self, nixpkgs, home-manager, rust-overlay, nixvim, wakatime-ls, zed-extensions, zen-browser, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
-      homeStateVersion = "25.05";
+      stateVersion = "25.05";
+      hostname = "derivator";
       user = "quantinium";
-      hosts = [
-        { hostname = "nixos"; stateVersion = "25.05"; }
-      ];
-
-      pkgs = nixpkgs.legacyPackages.${system}.extend (final: prev:
-        (rust-overlay.overlays.default final prev) //
-        (zed-extensions.overlays.default final prev)
-      );
-
-      makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
+    in
+    {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = {
           inherit inputs stateVersion hostname user;
         };
-
         modules = [
-          ({ ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default zed-extensions.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          })
-          {
-            environment.systemPackages = [ sakura.packages.${system}.default ];
-          }
-          ./hosts/${hostname}/configuration.nix
+          ./nixos/configuration.nix
         ];
       };
 
-    in
-    {
-      nixosConfigurations = nixpkgs.lib.foldl'
-        (configs: host:
-          configs // {
-            "${host.hostname}" = makeSystem {
-              inherit (host) hostname stateVersion;
-            };
-          })
-        { }
-        hosts;
+      overlays = import ./overlays { inherit inputs; };
 
-      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs homeStateVersion user;
-        };
-
+      homeConfigurations.${hostname} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs outputs user stateVersion rust-overlay; };
         modules = [
           ./home-manager/home.nix
           nixvim.homeManagerModules.nixvim
@@ -98,4 +73,5 @@
         ];
       };
     };
+
 }

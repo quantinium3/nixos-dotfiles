@@ -1,7 +1,7 @@
 {
   programs.git = {
     enable = true;
-    userName = "quantinium03";
+    userName = "quantinium3";
     userEmail = "quant@quantinium.dev";
   };
 }

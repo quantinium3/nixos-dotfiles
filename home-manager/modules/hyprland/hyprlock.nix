@@ -1,48 +1,89 @@
+{ pkgs, ... }:
+let
+  hyprlock-blur = pkgs.writeShellScriptBin "hyprlock-blur" ''
+    ${pkgs.grim}/bin/grim -o eDP-1 -l 0 /tmp/screenshot1.png &
+    ${pkgs.grim}/bin/grim -o HDMI-A-1 -l 0 /tmp/screenshot2.png & 
+    wait &&
+    hyprlock 
+  '';
+in
 {
+
+  home.packages = [
+    hyprlock-blur
+  ];
+
   programs.hyprlock = {
     enable = true;
-    settings = {
-      general = {
-        disable_loading_bar = true;
-        grace = 10;
-        hide_cursor = true;
-        no_fade_in = false;
-      };
+    #settings = {
+    #  background = [
+    #    {
+    #      monitor = "eDP-1";
+    #      path = "${wallpapers}/share/wallpapers/1.png";
 
-      label = {
-        text = "$TIME";
-        font_size = 96;
-        font_family = "0xProto";
-        color = "rgba(255, 255, 255, 1.0)";
-        position = "0, 600";
-        halign = "center";
-        walign = "center";
+    #      blur_passes = 1;
+    #      blur_size = 7;
+    #      noise = 1.17e-2;
+    #    }
+    #  ];
+    #  label = [
+    #    {
+    #      monitor = "eDP-1";
+    #      text = "$TIME";
+    #      color = "rgba(242, 243, 244, 0.75)";
+    #      font_size = 95;
+    #      font_family = "JetBrains Mono";
+    #      position = "0, 300";
+    #      halign = "center";
+    #      valign = "center";
+    #    }
+    #    {
 
-        shadow_passes = 1;
-      };
+    #      monitor = "DP-1";
+    #      text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
+    #      color = "rgba(242, 243, 244, 0.75)";
+    #      font_size = 22;
+    #      font_family = "JetBrains Mono";
+    #      position = "0, 200";
+    #      halign = "center";
+    #      valign = "center";
 
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 8;
-        }
-      ];
+    #    }
+    #  ];
 
-      input-field = [
-        {
-          size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          font_color = "rgb(235, 219, 178)";
-          inner_color = "rgb(40, 40, 40)";
-          outer_color = "rgb(60, 56, 54)";
-          outline_thickness = 5;
-          placeholder_text = "sussy baka";
-          shadow_passes = 1;
-        }
-      ];
-    };
+    #  image = {
+    #    monitor = "DP-1";
+    #    path = "${wallpapers}/share/wallpapers/1.png";
+
+    #    position = "0, 50";
+    #    halign = "center";
+    #    valign = "center";
+    #  };
+
+    #  input-field = {
+    #    monitor = "DP-1";
+    #    size = "200,50";
+    #    outline_thickness = 2;
+    #    dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
+    #    dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
+    #    dots_center = true;
+    #    outer_color = "rgba(0, 0, 0, 0)";
+    #    inner_color = "rgba(0, 0, 0, 0.2)";
+    #    font_color = "rgb(111, 45, 104)";
+    #    fade_on_empty = false;
+    #    rounding = -1;
+    #    check_color = "rgb(30, 107, 204)";
+    #    placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
+    #    hide_input = false;
+    #    position = "0, -100";
+    #    halign = "center";
+    #    valign = "center";
+    #  };
+
+    #  general = {
+    #    auth_method = "pam";
+    #  };
+    #};
+
   };
 }

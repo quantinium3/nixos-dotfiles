@@ -1,12 +1,18 @@
-{ homeStateVersion, user, ... }: {
+{ user
+, stateVersion
+, ...
+}: {
   imports = [
     ./modules
-    ./home-packages.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = user;
     homeDirectory = "/home/${user}";
-    stateVersion = homeStateVersion;
+    stateVersion = stateVersion;
   };
+
+  systemd.user.startServices = "sd-switch";
 }

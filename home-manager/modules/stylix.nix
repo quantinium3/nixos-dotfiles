@@ -1,17 +1,15 @@
 { pkgs, inputs, ... }: {
-  imports = [ inputs.stylix.homeModules.stylix ];
+  imports = [
+    inputs.stylix.homeModules.stylix
+  ];
 
   home.packages = with pkgs; [
     dejavu_fonts
-    noto-fonts
-    noto-fonts-emoji
+    nerd-fonts.jetbrains-mono
+    times-newer-roman
     font-awesome
     powerline-fonts
-    times-newer-roman
-    powerline-symbols
     montserrat
-    _0xproto
-    nerd-fonts._0xproto
   ];
 
   stylix = {
@@ -27,9 +25,9 @@
     };
 
     cursor = {
-      name = "DMZ-Black";
+      name = "Bibata-Modern-Ice";
       size = 24;
-      package = pkgs.vanilla-dmz;
+      package = pkgs.bibata-cursors;
     };
 
     fonts = {
@@ -37,14 +35,17 @@
         name = "Noto Color Emoji";
         package = pkgs.noto-fonts-color-emoji;
       };
+
       monospace = {
-        name = "0xProto";
-        package = pkgs._0xproto;
+        name = "JetBrains Mono";
+        package = pkgs.jetbrains-mono;
       };
+
       sansSerif = {
         name = "Montserrat";
         package = pkgs.montserrat;
       };
+
       serif = {
         name = "Noto Serif";
         package = pkgs.noto-fonts;
@@ -63,9 +64,10 @@
       light = "Papirus-Light";
     };
 
+
     image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/qr/wallhaven-qr9987.jpg";
-      sha256 = "sha256-xKBv8ve65GeY/PkCGBQZwtHQS1FZL4QpVcLnG8qLH5Q=";
+      url = "https://images5.alphacoders.com/130/1304191.jpeg";
+      sha256 = "sha256-e/PrwEKWz/VcQSneT4uZ6Sjp9a6zyIvE61dWlyOAtqU=";
     };
   };
 }
