@@ -1,4 +1,4 @@
-{ config, stateVersion, ... }: {
+{ stateVersion, ... }: {
   environment.variables = rec {
     EDITOR = "nvim";
     TERMINAL = "wezterm";
@@ -25,7 +25,7 @@
         "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
-        "${config.age.secrets.nix_community_cachix_key1.path}"
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };

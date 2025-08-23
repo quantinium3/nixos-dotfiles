@@ -18,6 +18,9 @@
         ];
       };
     };
+
+    enableRedistributableFirmware = true;
+    steam-hardware.enable = true;
   };
 
   services.xserver.videoDrivers = [
