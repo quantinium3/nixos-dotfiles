@@ -10,5 +10,6 @@
     lm_sensors
     dmidecode
     pkg-config
+    wl-clipboard
   ];
 }
