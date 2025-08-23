@@ -2,9 +2,9 @@ local wezterm = require("wezterm")
 
 return {
   font = wezterm.font_with_fallback({
-    "0xProto",
+    "JetBrains Mono",
   }),
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.90,
   window_decorations = "RESIZE",
 
   enable_tab_bar = false,

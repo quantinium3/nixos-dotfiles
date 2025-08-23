@@ -1,6 +1,9 @@
 {
-    imports = [
-        ./tmux.nix
-        ./lazygit.nix
-    ];
+  imports = [
+    ./languages.nix
+    ./lazygit.nix
+    ./lsp.nix
+    ./tmux.nix
+    ./tools.nix
+  ];
 }

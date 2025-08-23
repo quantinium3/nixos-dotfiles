@@ -8,7 +8,7 @@
     ./editor
     ./waybar
     ./browsers
-/*     ./wofi */
+    ./wofi
     ./stylix.nix
     ./git.nix
     ./discord.nix

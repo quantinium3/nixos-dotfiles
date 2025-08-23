@@ -4,14 +4,25 @@
   ];
 
   home.packages = with pkgs; [
+    dejavu_fonts
     nerd-fonts.jetbrains-mono
     times-newer-roman
+    font-awesome
+    powerline-fonts
+    montserrat
   ];
 
   stylix = {
     enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/github-dark.yaml";
+
+    targets = {
+      waybar.enable = false;
+      wofi.enable = false;
+      hyprland.enable = false;
+      hyprlock.enable = false;
+    };
 
     cursor = {
       name = "Bibata-Modern-Ice";
