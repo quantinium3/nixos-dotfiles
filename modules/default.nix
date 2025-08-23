@@ -21,7 +21,6 @@
         ./hyprlock.nix
         ./tuigreetd.nix
         ./nh.nix
-        ./agenix.nix
         ./nvidia.nix
     ];
 }

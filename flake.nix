@@ -39,14 +39,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, nixvim, wakatime-ls, zed-extensions, zen-browser, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, nixvim, wakatime-ls, zed-extensions, zen-browser, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -62,7 +58,6 @@
         };
         modules = [
           ./nixos/configuration.nix
-          agenix.nixosModules.default
         ];
       };
 
