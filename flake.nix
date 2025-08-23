@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fenix = {
-      url = "github:nix-community/fenix";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,7 +41,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, fenix, nixvim, wakatime-ls, zed-extensions, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, nixvim, wakatime-ls, zed-extensions, zen-browser, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -55,7 +55,6 @@
         specialArgs = {
           inherit inputs stateVersion hostname user;
         };
-
         modules = [
           ./nixos/configuration.nix
         ];
