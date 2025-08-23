@@ -1,4 +1,4 @@
-{ stateVersion, ... }: {
+{ config, stateVersion, ... }: {
   environment.variables = rec {
     EDITOR = "nvim";
     TERMINAL = "wezterm";
@@ -19,7 +19,15 @@
   };
 
   nix = {
-    settings.auto-optimise-store = true;
+    settings = {
+      auto-optimise-store = true;
+      substituters = [
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "${config.age.secrets.nix_community_cachix_key1.path}"
+      ];
+    };
   };
 
   nixpkgs = {

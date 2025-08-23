@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     vim
     curlHTTP3
@@ -11,5 +11,6 @@
     dmidecode
     pkg-config
     wl-clipboard
+    inputs.agenix.packages."${system}".default
   ];
 }

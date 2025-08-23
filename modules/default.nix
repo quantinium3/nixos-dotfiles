@@ -21,5 +21,6 @@
         ./hyprlock.nix
         ./tuigreetd.nix
         ./nh.nix
+        ./agenix.nix
     ];
 }
