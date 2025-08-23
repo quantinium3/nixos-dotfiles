@@ -32,5 +32,6 @@
     libreoffice
     qbittorrent
     lmstudio
+    nomacs
   ];
 }

@@ -23,10 +23,16 @@
     steam-hardware.enable = true;
   };
 
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
+  services.xserver = {
+    videoDrivers = [
+      "nvidia"
+    ];
+    displayManager.gdm.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+  };
 }
 
 

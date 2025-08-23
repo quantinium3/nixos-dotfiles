@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 let
-  nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.beta;
+  nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.production;
 in
 {
-  /* environment.systemPackages = with pkgs;
+  environment.systemPackages = with pkgs;
     [
       ffmpeg
       fmt.dev
@@ -25,7 +25,7 @@ in
       stdenv.cc
       binutils
       uv
-    ]; */
+    ];
 
   nixpkgs.config.nvidia.acceptLicense = true;
 
@@ -33,7 +33,7 @@ in
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     package = nvidiaPackage;
     prime = {
@@ -42,12 +42,12 @@ in
     };
   };
 
-  /* environment.variables = {
+  environment.variables = {
     LD_LIBRARY_PATH = "${nvidiaPackage}/lib";
     CUDA_PATH = "${pkgs.cudatoolkit}";
     EXTRA_LDFLAGS = "-L/lib -L${nvidiaPackage}/lib";
     EXTRA_CCFLAGS = "-I/usr/include";
     CMAKE_PREFIX_PATH = "${pkgs.fmt.dev}:$CMAKE_PREFIX_PATH";
     PKG_CONFIG_PATH = "${pkgs.fmt.dev}/lib/pkgconfig:$PKG_CONFIG_PATH";
-  }; */
+  };
 }

@@ -19,7 +19,6 @@
         ./nix-ld.nix
         ./fonts.nix
         ./hyprlock.nix
-        ./tuigreetd.nix
         ./nh.nix
         ./nvidia.nix
     ];
