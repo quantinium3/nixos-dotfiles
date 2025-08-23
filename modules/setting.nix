@@ -15,6 +15,7 @@
 
   system = {
     stateVersion = stateVersion;
+    rebuild.enableNg = true;
   };
 
   nix = {

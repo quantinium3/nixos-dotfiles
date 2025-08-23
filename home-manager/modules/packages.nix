@@ -31,5 +31,6 @@
     obs-studio
     libreoffice
     qbittorrent
+    lmstudio
   ];
 }

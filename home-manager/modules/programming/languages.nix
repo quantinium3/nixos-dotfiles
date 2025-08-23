@@ -24,6 +24,8 @@
     eslint
     eslint_d
     prettierd
+    tinymist
+    typstfmt
 
     # COMPILERS
     python314
@@ -45,6 +47,7 @@
     erlang
     nasm
     cmake
+    typst
 
     luarocks
     opencode

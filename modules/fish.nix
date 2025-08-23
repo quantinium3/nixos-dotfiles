@@ -8,8 +8,8 @@
       locate = "find / -name";
       drive-info = "sudo smartctl -a";
       birthday = "stat -c %w /";
-      hms = "home-manager switch --flake .";
-      nrb = "sudo nixos-rebuild switch --flake .";
+      hms = "home-manager switch --flake ~/.config/nix#derivator";
+      nrb = "sudo nixos-rebuild switch --flake ~/.config/nix#derivator";
       lg = "lazygit";
       yz = "yazi";
     };

@@ -20,5 +20,6 @@
         ./fonts.nix
         ./hyprlock.nix
         ./tuigreetd.nix
+        ./nh.nix
     ];
 }
