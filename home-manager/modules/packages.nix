@@ -22,6 +22,7 @@
     traceroute
     usbutils
     strace
+    flameshot
 
     haruna
     thunderbird
