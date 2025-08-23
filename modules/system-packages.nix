@@ -11,5 +11,6 @@
     dmidecode
     pkg-config
     wl-clipboard
+    (flameshot.override { enableWlrSupport = true; })
   ];
 }

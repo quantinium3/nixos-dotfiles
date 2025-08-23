@@ -4,5 +4,6 @@
     air
     deploy-rs
     hyperfine
+    turbo
   ];
 }

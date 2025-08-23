@@ -9,7 +9,7 @@ return {
     },
     line_height = 1.0,
     window_background_opacity = 0.9,
-    window_decorations = "RESIZE",
+    window_decorations = "NONE",
     text_background_opacity = 1.0,
     window_padding = {
         left = 10,
