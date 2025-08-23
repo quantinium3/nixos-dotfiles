@@ -13,5 +13,6 @@
     ./git.nix
     ./discord.nix
     ./wezterm
+    ./rust.nix
   ];
 }

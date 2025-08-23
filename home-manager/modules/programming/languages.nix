@@ -27,7 +27,9 @@
 
     # COMPILERS
     python314
-    clang
+    clang_16
+    clang-tools_16
+    lld
     nodejs_latest
     bun
     deno
@@ -45,5 +47,6 @@
     cmake
 
     luarocks
+    opencode
   ];
 }

@@ -25,7 +25,6 @@
     fish-lsp
     zls
     svelte-language-server
-    rust-analyzer
     angular-language-server
   ];
 }

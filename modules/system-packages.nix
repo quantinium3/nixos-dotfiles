@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     vim
-    curl
+    curlHTTP3
     wget
     less
     nettools
