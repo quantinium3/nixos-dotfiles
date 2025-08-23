@@ -30,6 +30,11 @@ rebuild_all() {
   rebuild_home
 }
 
+clean() {
+  echo "=== Rebuilding Home Manager ==="
+  nh clean all
+}
+
 usage() {
   cat <<EOF
 Usage: $0 [command] [commit-message]
@@ -39,6 +44,7 @@ Commands:
   system        Rebuild NixOS system
   home          Rebuild Home Manager
   all [msg]     Sync config + rebuild system + rebuild home
+  clean         Clean unused nix dependencies
 EOF
 }
 
@@ -57,6 +63,10 @@ main() {
     all)
       shift
       rebuild_all "$@"
+      ;;
+    clean)
+      shift
+      clean
       ;;
     *)
       usage
