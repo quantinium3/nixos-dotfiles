@@ -27,11 +27,6 @@
     videoDrivers = [
       "nvidia"
     ];
-    displayManager.gdm.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
   };
 }
 
