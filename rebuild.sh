@@ -16,12 +16,12 @@ sync_config() {
 
 rebuild_system() {
   echo "=== Rebuilding NixOS system ==="
-  NH_BYPASS_ROOT_CHECK=true NH_NO_CHECKS=true nh os switch . --accept-flake-config --extra-experimental-features pipe-operators
+  nh os switch . --hostname derivator
 }
 
 rebuild_home() {
   echo "=== Rebuilding Home Manager ==="
-  NH_BYPASS_ROOT_CHECK=true NH_NO_CHECKS=true nh home switch . --accept-flake-config --extra-experimental-features pipe-operators
+  home-manager switch --flake ~/.config/nix#derivator
 }
 
 rebuild_all() {
