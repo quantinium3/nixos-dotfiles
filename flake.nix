@@ -64,7 +64,7 @@
 
       homeConfigurations.${hostname} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs outputs user stateVersion; };
+        extraSpecialArgs = { inherit inputs outputs user stateVersion rust-overlay; };
         modules = [
           ./home-manager/home.nix
           nixvim.homeManagerModules.nixvim
