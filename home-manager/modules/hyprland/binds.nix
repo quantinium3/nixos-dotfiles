@@ -1,4 +1,9 @@
-{
+{ pkgs, ... }: {
+  home.packages = with pkgs; [
+    grim
+    slurp
+    wf-recorder
+  ];
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mainMod,       A, exec, $terminal"
@@ -12,6 +17,24 @@
       "$mainMod SHIFT, X, exec, loginctl lock-session"
       "$mainMod,       N, exec, swaync-client -t"
       "$mainMod,       SPACE, togglefloating"
+
+      ",Print,              exec, grimshot --notify save screen $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir SCREENSHOTS)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+      "SHIFT,Print,         exec, grimshot --notify save area $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir SCREENSHOTS)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+      "ALT,Print,           exec, grimshot --notify save active $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir SCREENSHOTS)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+      "SHIFT ALT,Print,     exec, grimshot --notify save window $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir SCREENSHOTS)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+      "CTRL,Print,          exec, grimshot --notify copy screen"
+      "CTRL SHIFT,Print,    exec, grimshot --notify copy area"
+      "CTRL ALT,Print,      exec, grimshot --notify copy active"
+      "CTRL SHIFT ALT,Print,exec, grimshot --notify copy window"
+
+      "$mainMod,Print,              exec, wayrecorder --notify screen"
+      "$mainMod SHIFT,Print,        exec, wayrecorder --notify --input area"
+      "$mainMod ALT,Print,          exec, wayrecorder --notify --input active"
+      "$mainMod SHIFT ALT,Print,    exec, wayrecorder --notify --input window"
+      "$mainMod CTRL,Print,         exec, wayrecorder --notify --clipboard --input screen"
+      "$mainMod CTRL SHIFT,Print,   exec, wayrecorder --notify --clipboard --input area"
+      "$mainMod CTRL ALT,Print,     exec, wayrecorder --notify --clipboard --input active"
+      "$mainMod CTRL SHIFT ALT,Print, exec, wayrecorder --notify --clipboard --input window"
 
       "$mainMod, h, movefocus, l"
       "$mainMod, l, movefocus, r"
