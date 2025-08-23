@@ -11,6 +11,5 @@
     dmidecode
     pkg-config
     wl-clipboard
-    inputs.agenix.packages."${system}".default
   ];
 }
