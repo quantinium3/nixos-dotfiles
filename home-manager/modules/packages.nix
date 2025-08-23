@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     asciinema
     dig
     doggo
@@ -30,7 +30,6 @@
     fractal
     obs-studio
     libreoffice
-    en_US
     qbittorrent
   ];
 }

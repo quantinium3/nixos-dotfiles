@@ -1,6 +1,6 @@
 {
   imports = [
-    ./packages
+    ./packages.nix
     ./programming
     ./qt.nix
     ./hyprland
